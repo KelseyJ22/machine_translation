@@ -1,0 +1,218 @@
+a: to, at, into, by, of
+abiertos: open
+acomodadas: comfortable, organized
+acuerdo: agreement, understanding, accord
+adecuadas: suitable, appropriate, sufficient
+aficionada: fan, enthusiast, lover, afficionado
+afirma: he affirms, she affirms, it affirms
+al: to the
+alertar: to alert
+algo: something
+algunos: someone, some, a few
+ambientales: environmental, ambient
+amos: we love
+antes: before
+ara: ara
+arana: spider  
+as: as
+ataques: attacks
+autores: authors, writers, perpetrators
+bancarias: banking, bank employee, bank statement
+banda: band, group, sash, belt, gang
+bater: battery
+baterias: battery, drums
+bbc: BBC
+betsy: Betsy
+bil: bil
+blica: blic
+blico: blic
+c: c
+carbono: carbon, coal
+caso: case, fact, marry
+ciberataque: cyberattack
+cibern: cibern
+cient: hundred
+clientes: customer, client, guest
+co: co
+colombia: Colombia
+com: com
+como: as, like, how, because
+componen: component      
+compuestos: compound, dressed up, composed
+computadoras: computers
+con: with
+conductoras: driver, presenter, anchor, host
+conectarse: to connect, to plug in, to get through to
+contaminantes: contaminants, pollutants
+contrase: to contract, to hire, to take on
+cualquier: anyone
+cualquiera: anyone, anybody, ordinary, unremarkable
+davis: Davis
+de: from, of, by
+deber: have to, must
+del: of the
+desconectar: to disconnect
+descubrir: to discover
+detectar: to detect
+dientes: teeth
+diez: ten
+digo: I said
+dise: he said, she said, it said
+duro: hard, tough, harsh
+efecto: effect, impression, purpose
+el: the
+elementos: elements
+empleados: employees
+empresa: business, company, enterprise
+en: in
+enfocado: focused
+enormemente: enormous
+es: is
+especializada: specialized
+est: esta
+estado: state, phase, condition
+este: this
+estos: these
+estructuras: structures
+estudio: study
+europeo: european
+extiende: extends, spreads out, lays out
+fibra: fiber, grain
+fibras: fibers, grains
+fico: fico
+fuerte: strong
+funcionamiento: functioning, operating        
+gch: gch
+gusta: pleasure
+h: h
+ha: ha
+hacer: to make, to do
+hackear: to hack
+hechos: incident, done
+hilo: thread
+http: http
+humano: human
+incluso: including
+incorporar: to incorporate
+infect: infect
+inform: inform
+inhal: inhale
+instituciones: institutions
+inter: inter
+investigacion: investigation
+kevlar: kevlar
+la: the
+lapa: limpet, leech
+las: the
+le: the
+lo: it
+londres: London
+los: the
+lp: lp
+lv: lv
+m: m
+maligno: malign, malignant
+malware: malware
+manera: way, manner
+mas: more
+material: material, fabric, cop
+materiales: materials, fabrics
+mbrica: mbrica
+medidas: measurements, steps
+mejoran: become better
+mejores: betters
+membrana: membrane
+minimizar: to minimize
+minutos: minutes
+mismos: same, just
+mo: mo
+mundo: world, globe
+muy: very
+n: n
+natural: natural, fresh
+necesita: needs, necessitates
+ni: not, neither
+nina: girl
+nmente: -ly
+no: no
+nombre: name, reputsation
+noticias: news, newscast
+nuestras: our
+o: or
+objeto: object
+os: of us
+otra: other
+p: p
+para: for, in order to, to, stops
+parlamento: parliament
+particular: personal, peculiar, private, particular, individual
+pasado: past
+peligros: dangers
+pensar: to think, to mediate
+peque: kid, little one
+pilas: batteries, sinks, piles
+poco: little
+por: for
+pr: pr
+prevenir: to prevent, to alert, to warn 
+principalmente: principally
+principios: principles, starts
+profesional: professional
+propias: own, typical, appropriate
+propiedades: properties, attributes, characteristics, traits
+publica: public
+que: what, that, which
+quiso: wanted
+recarga: recharges, reloads
+red: internet, web
+redes: webs
+reduce: he reduces, she reduces, it reduces
+reproducir: to reproduce, to replicate
+requieren: they require
+rminos: rminos
+robo: robbery, theft
+s: s
+se: he knows, she knows, it knows, I know
+seg: seg
+seguridad: security
+sentences: sentences
+ser: to be
+siete: seven
+siglo: century
+siguiendo: following
+sin: without
+sint: sint
+sistema: system
+sobre: about, above, over
+su: his, her, its
+suficiente: sufficient
+sus: their
+t: t
+tan: so, such, as
+tecnolog: technology
+tecnologia: technology
+tela: fabric, web
+tica: tica
+tico: tico
+tiempo: time, weather, moment
+til: til          
+tipo: type, kind, emblem, build
+tomando: taking, grabbing, catching
+tras: through
+trata: treats
+tuvo: had to
+uk: UK
+un: one, a
+una: one, a
+uno: one
+uso: used
+usuario: user, username
+utilizados: utilized
+ventaja: advantage
+vida: life
+vive: he lives, she lives, it lives
+wifi: wifi
+wifip: wifi
+www: www
+xima: xima
+y: and, y

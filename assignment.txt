@@ -1,0 +1,67 @@
+DATA
+To build your system, you will need a small working corpus on which you can test it. Your first job is to create that corpus. It should be 15 sentences. Don't write the sentences yourself; take real sentences from a source in your chosen language, such as a newspaper, a novel, a web site, etc.. You can have sentences from different sources. All the sources should be included in your write-up.
+
+Dev-test split
+
+From this point on, leave out about 5 sentence pairs (F-E) for testing, and work only with the rest of the pairs when developing your system. The set of 5 sentences is your test set; the set of 10 sentences is your dev set, which you use both as a source of insights into the translation problem, and to produce evaluations during the development process. At the end, you will come back to the test set to see if the system you developed generalizes well.
+
+Don't look at the test set while you're developing! The reason for this is that, the more you know about your test set, the more this allows you to tailor your system to perform well on that set, and that's not a fair evaluation. It's a violation of the honor code to look at the test set after you built your dictionary (which should be your very first step in building the MT system).
+
+DICTIONARY
+We're assuming a closed vocabulary system, so you will have access to a dictionary for all the words in the working corpus. (A complex real-world system would work with an open-vocabulary assumption, and deal with new words on the fly.)
+
+Create a bilingual E-F (English / Language-F) dictionary for each word in your working corpus. It's difficult to get a good downloadable dictionary, so do this using a web-based or print English-X dictionary (Here's a web-based dictionary for several languages. Google Translate often works quite well for word to word translation, too.)
+
+Don't try to work directly with the entire dictionary. Rather, create a little dictionary file that has just the words in your working corpus and the corresponding translation for English. Note that, if you have more than one translation for some word, you can put all the translations in the dictionary, and you will need a heuristic to choose the correct one in context when you are translating a sentence. (That could just be using the most frequent translation, but you can use information about the source sentence, a language model, etc..) Handpicking the correct translations in advance is not allowed.
+
+TRANSLATION SYSTEM
+Now write code (in Java or Python, as usual) to implement the following "Direct MT" system:
+
+Use your bilingual dictionary to translate each word from Language F into English.
+Obtain any annotation you want on your sentences -- word tokenization, lemmatization, POS-tagging, parsing, word sense disambiguation, anything you need. Do not write your own tools for this; you can look for a toolkit in your favorite language, and the staff can help with that too. (Note that no specific type of annotation is required, and you will not be graded on the type of annotation you choose. It is using these tools intelligently that matters.)
+Now write code for 6-10 pre- or post-processing strategies to improve the baseline translations from the direct method. Anything that you can do automatically is fair game here: reordering words based on part-of-speech (nouns and adjectives, for instance, as we saw between English and Spanish); substituting trees; reordering constituents; using a language model... the sky is the limit! Good strategies will be ones that generalize well and produce significant improvements on the translation, making it look more like real English. Leverage your knowledge of the languages, and try to spot patterns in your dev set.
+Note that we would ask you to take the following iterative approach to think of and report the strategies you propose. For each strategy, you should:
+
+Observe the translations of your current system (with 0 or more strategies you already implemented) on the dev set, and identify problems
+Come up with one strategy that would alleviate the problem you identified
+Implement that strategy and evaluate its performance
+If find it difficult to arrange your strategies in such a linear order, or certain strategies must work as a combination, be sure to talk to one of the staff members first (in person/on Piazza/via email) before moving on.
+
+TESTING
+When you're finished with your translation system (direct or statistical), run it on the test set. Your code will need to run the baseline system (direct MT with dictionary, or IBM Model 1), then produce whatever annotations you need for your improvement strategies, then execute those strategies.
+
+Note that for previous assignments, we usually take care of this and run your code on a test set that you haven't had access to. The logistics for this assignment is different: you will run the system on the test set yourself. We count on your honesty for this step: do not use the test set while you are developing, and do not go back to developing after you evaluate your system on the test set.
+
+ERROR ANALYSIS
+After you're all done and have produced your translations for the test set, there will inevitably still be errors. (In fact, you probably still have errors in the dev set as well -- MT is hard!) Now is the time to think deeply about those errors and how to make the system better.
+
+Make sure you leave plenty of time for this: error analysis is one of the most important stages in the development of complex systems! Where are things going wrong: maybe there's ambiguity in the source sentences? Or perhaps idiomatic meanings? How is the fluency of the output? You should not only identify the errors in your output, but also think carefully about what aspects of language make the problem difficult; what simplifying assumptions in your approach fail to tackle those aspects of language; what information would be needed to avoid the errors; and what might be some ways of getting that information. Machine translation is an open area of research, so of course you are likely to run into errors that are very difficult to avoid. What's important in this assignment is that you understand why those errors happen.
+
+Next, run the sentences in your test set through Google Translate and discuss any errors that Google makes. Where does Google do better? Are there places where your implementation does better? Why?
+
+You should compare all 5 sentences in your test set.
+
+ESSAY
+Provide a project write-up titled "report.pdf". It should include at least the following:
+
+A comment on the language F that you chose. You should make a brief statement of particular challenges in translating your choice of F language to English (relative to other possible choices for F), and key insights about the language that you made use of in your strategies to improve your baseline MT system.
+Your corpus of 15 sentences, with clear indication of the dev-test split.
+For each pre- or post-processing strategy you implement, a description of what differences between Language F and English that strategy was designed to address. Make sure you motivate the strategies by pointing to the characteristics of the dev set that led you to design them.
+The output of Google Translate.
+A comparative analysis commenting on your system's performance compared to Google Translate's. Show where the systems agree, what your system does better than Google Translate, and what Google Translate does better than your system.
+It's very important to write a good report, since everyone will be writing different systems for different languages, so the TAs will not know much a priori about what you did. The grading will largely be based on your report and it is your job to clearly explain your efforts. You should explain your strategies and comment on your errors clearly and concisely, with examples.
+
+Limit: roughly 2000 words. (That's about 4 pages if you were to format it. You can feel free to put more supporting examples in an Appendix and refer to them, in order to keep your report body concise with examples that are absolutely necessary.)
+
+GRADING
+While your code will be submitted and the TAs may inspect it they choose to, your score for this assignment will be based on your write-up. The grade is based on at least the following:
+
+Your relative progress towards a good English translation. (To be clear, we're gauging your progress, not an absolute measure of how close you get. Depending on your language choice, you might start out farther or closer. There's no grading advantage here in picking a language that starts out closer.)
+Your thoughtful choices in designing general, robust strategies.
+The insightfulness of your error analyses, both of your own MT and for Google Translate.
+Clarity of your write-up.
+Be aware of the fact that, if we do not understand something in your write-up, we may choose to look at your code. In that situation, having clear, documented code will be your chance to convey your ideas and get points you might otherwise lose.
+
+
+EXTRA CREDIT
+For each rule that you implement in your direct MT system, you will be awarded up to 1 point extra credit for a general, clearly explained strategy that applies in at least 3 sentences in the test set and creates non-trivial improvement in the fluency and/or faithfulness of the system translation, relative to the baseline translation. It is the authors' responsibility to argue convincingly that there was non-trivial improvement. (Trivial improvement would be, for example, a single word being changed for a synonym.) An example of this type of strategy might be incorporating a language model to decide among candidate translations generated with other strategies.
