@@ -1,39 +1,15 @@
-Sentences
-
-http://www.bbc.co.uk/mundo/noticias/2015/02/150218_lapa_material_mas_fuerte_lp
-1. Según los autores del estudio, estos dientes están compuestos de un material que es incluso más fuerte que la tela de araña.
-
-2. La investigación afirma que se trata de algo tan duro como algunos de los mejores materiales hechos por el ser humano, como el kevlar o la fibra de carbono.
-
-3. Estos dientes se componen de fibras muy pequeñas, acomodadas de una manera particular.
-
-4. Deberíamos pensar en hacer nuestras propias estructuras siguiendo los mismos principios de diseño.
-
-http://www.bbc.co.uk/mundo/noticias/2015/02/150217_nina_siete_hackear_wifi_publica_ac
-
-5. Una niña de siete años aficionada a la tecnología necesita poco más de diez minutos para hackear una red inhalámbrica o wifipública.
-
-6. Es lo que descubrió una empresa especializada en seguridad informática que quiso alertar sobre los peligros de conectarse a redes wifi sin la seguridad suficiente.
-
-7. Betsy Davis es una niña de siete años que vive en Londres y a la que le gusta la tecnología.
-
-8. Algunos no requieren un nombre de usuario y contraseña, por lo que están abiertos a cualquiera.
-
-9. El Parlamento europeo tuvo que desconectar el año pasado su sistema de wifi público tras ser objeto de uno de estos ataques.
-
-http://www.bbc.co.uk/mundo/noticias/2014/11/141103_arana_colombia_hilo_baterias_lp
-10. Al incorporar hilo de araña en la membrana, se mejoran enormemente sus propiedades conductoras.
-
-11. En el caso de una batería, extiende su vida útil y el tiempo de funcionamiento antes de la próxima recarga.
-
-12. Otra ventaja es que es un material natural. En términos ambientales, reduce el uso de elementos contaminantes utilizados comúnmente en las pilas.
-
-13. El interés científico ha estado enfocado principalmente en cómo reproducir sus propiedades en un material sintético.
-
-
-http://www.bbc.co.uk/mundo/noticias/2015/02/150216_tecnologia_ciberataque_siglo_gch_lv
-14. De acuerdo a la investigación, la banda infectó con malware o código maligno las computadoras de los empleados de las instituciones bancarias.
-
-15. Se trata de un robo cibernético muy hábil y profesional.
-
-16. Están tomando las medidas adecuadas para prevenir y detectar este tipo de ataques y minimizar cualquier efecto de estos sobre sus clientes.
+Según los autores del estudio, estos dientes están compuestos de un material que es incluso más fuerte que la tela de araña.
+Estos dientes se componen de fibras muy pequeñas, acomodadas de una manera particular.
+Deberíamos pensar en hacer nuestras propias estructuras siguiendo los mismos principios de diseño.
+Una niña de siete años aficionada a la tecnología necesita poco más de diez minutos para hackear una red inhalámbrica o wifipública.
+Es lo que descubrió una empresa especializada en seguridad informática que quiso alertar sobre los peligros de conectarse a redes wifi sin la seguridad suficiente.
+Betsy Davis es una niña de siete años que vive en Londres y a la que le gusta la tecnología.
+Algunos no requieren un nombre de usuario y contraseña, por lo que están abiertos a cualquiera.
+El Parlamento europeo tuvo que desconectar el año pasado su sistema de wifi público tras ser objeto de uno de estos ataques.
+Al incorporar hilo de araña en la membrana, se mejoran enormemente sus propiedades conductoras.
+En el caso de una batería, extiende su vida útil y el tiempo de funcionamiento antes de la próxima recarga.
+Otra ventaja es que es un material natural. En términos ambientales, reduce el uso de elementos contaminantes utilizados comúnmente en las pilas.
+El interés científico ha estado enfocado principalmente en cómo reproducir sus propiedades en un material sintético.
+De acuerdo a la investigación, la banda infectó con malware o código maligno las computadoras de los empleados de las instituciones bancarias.
+Se trata de un robo cibernético muy hábil y profesional.
+Están tomando las medidas adecuadas para prevenir y detectar este tipo de ataques y minimizar cualquier efecto de estos sobre sus clientes.

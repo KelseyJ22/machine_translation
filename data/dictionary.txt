@@ -14,12 +14,13 @@ amos: we love
 antes: before
 ara: ara
 arana: spider  
-as: as
+ano: year
+anos: years
 ataques: attacks
 autores: authors, writers, perpetrators
 bancarias: banking, bank employee, bank statement
 banda: band, group, sash, belt, gang
-bater: battery
+bateria: battery
 baterias: battery, drums
 bbc: BBC
 betsy: Betsy
@@ -30,12 +31,13 @@ c: c
 carbono: carbon, coal
 caso: case, fact, marry
 ciberataque: cyberattack
+cibernetico: internet
 cibern: cibern
-cient: hundred
+cientifico: scientist
 clientes: customer, client, guest
-co: co
+codigo: code
 colombia: Colombia
-com: com
+comunmente: commonly, frequently
 como: as, like, how, because
 componen: component      
 compuestos: compound, dressed up, composed
@@ -44,20 +46,23 @@ con: with
 conductoras: driver, presenter, anchor, host
 conectarse: to connect, to plug in, to get through to
 contaminantes: contaminants, pollutants
-contrase: to contract, to hire, to take on
+contrasena: password
 cualquier: anyone
 cualquiera: anyone, anybody, ordinary, unremarkable
 davis: Davis
 de: from, of, by
 deber: have to, must
+deberiamos: we have to, we must, we should
 del: of the
 desconectar: to disconnect
 descubrir: to discover
+descubrio: he discovered, she discovered, it discovered
 detectar: to detect
 dientes: teeth
 diez: ten
 digo: I said
 dise: he said, she said, it said
+diseno: drawing, pattern, sketch, design
 duro: hard, tough, harsh
 efecto: effect, impression, purpose
 el: the
@@ -69,7 +74,7 @@ enfocado: focused
 enormemente: enormous
 es: is
 especializada: specialized
-est: esta
+estan: are
 estado: state, phase, condition
 este: this
 estos: these
@@ -85,7 +90,8 @@ funcionamiento: functioning, operating
 gch: gch
 gusta: pleasure
 h: h
-ha: ha
+ha: has
+habil: good, clever, skilled
 hacer: to make, to do
 hackear: to hack
 hechos: incident, done
@@ -94,11 +100,11 @@ http: http
 humano: human
 incluso: including
 incorporar: to incorporate
-infect: infect
-inform: inform
-inhal: inhale
+infecto: I infect, I become infected with
+informatica: computer science, information technology
+inhalambrica: wireless, cordless
 instituciones: institutions
-inter: inter
+interes: interest, attention
 investigacion: investigation
 kevlar: kevlar
 la: the
@@ -149,11 +155,11 @@ particular: personal, peculiar, private, particular, individual
 pasado: past
 peligros: dangers
 pensar: to think, to mediate
-peque: kid, little one
+pequenas: little, small
 pilas: batteries, sinks, piles
 poco: little
 por: for
-pr: pr
+proxima: next, close, near, coming
 prevenir: to prevent, to alert, to warn 
 principalmente: principally
 principios: principles, starts
@@ -161,6 +167,7 @@ profesional: professional
 propias: own, typical, appropriate
 propiedades: properties, attributes, characteristics, traits
 publica: public
+publico: public
 que: what, that, which
 quiso: wanted
 recarga: recharges, reloads
@@ -173,7 +180,7 @@ rminos: rminos
 robo: robbery, theft
 s: s
 se: he knows, she knows, it knows, I know
-seg: seg
+segun: according to, following
 seguridad: security
 sentences: sentences
 ser: to be
@@ -181,7 +188,7 @@ siete: seven
 siglo: century
 siguiendo: following
 sin: without
-sint: sint
+sintetico: synthetic
 sistema: system
 sobre: about, above, over
 su: his, her, its
@@ -191,6 +198,7 @@ t: t
 tan: so, such, as
 tecnolog: technology
 tecnologia: technology
+terminos: terms, conclusions, ends
 tela: fabric, web
 tica: tica
 tico: tico
@@ -208,11 +216,12 @@ uno: one
 uso: used
 usuario: user, username
 utilizados: utilized
+util: useful
 ventaja: advantage
 vida: life
 vive: he lives, she lives, it lives
 wifi: wifi
-wifip: wifi
+wifipublica: public wifi
 www: www
 xima: xima
 y: and, y
