@@ -22,7 +22,11 @@ tagger = nltk.UnigramTagger(spanish_training)
 for line in contents:
     words = nltk.word_tokenize(line)
     tagged = tagger.tag(words)
-    tagged_sentences.write(str(tagged))
+    to_write = ''
+    for word in tagged:
+    	to_write += str(word[0]) + '(' + str(word[1]) + ') '
+    to_write += '\n'
+    tagged_sentences.write(to_write)
 
 dictionary = []
 f = open(dictionary_file)
@@ -35,7 +39,18 @@ output = open('output_dictionary.txt', 'w')
 for line in dictionary:
 	words = nltk.word_tokenize(line)
 	tagged = nltk.pos_tag(words)
-	output.write(str(tagged))
+	
+	to_write = ''
+	to_write += str(tagged[0][0])
+	to_write += str(tagged[1][0])
+	for i in range(2, len(tagged)):
+		if tagged[i][0] != ',':
+			to_write += str(tagged[i][0]) + '/' + str(tagged[i][1])
+		else:
+			to_write += str(tagged[i][0]) + ' '
+	to_write += '\n'
+
+	output.write(str(to_write))
 
 
 tagged_sentences.close()
