@@ -3,8 +3,6 @@
 from nltk.corpus import cess_esp
 import nltk
 
-#For English post-processing, the path will need to be replaced with an
-#initialization of the English sentences list
 sentences_file = 'data/sentences.txt'
 dictionary_file = 'data/dictionary.txt'
 
@@ -14,8 +12,9 @@ for line in f:
     contents.append(line)
 f.close()
 
-tagged_sentences = open('tagged_sentences.txt', 'w')
+tagged_sentences = open('data/tagged_sentences.txt', 'w')
 
+# Spanish part of speech tagging
 spanish_training = cess_esp.tagged_sents()
 tagger = nltk.UnigramTagger(spanish_training)
 
@@ -34,8 +33,9 @@ for line in f:
 	dictionary.append(line)
 f.close()
 
-output = open('output_dictionary.txt', 'w')
+output = open('data/output_dictionary.txt', 'w')
 
+# English part of speech tagging
 for line in dictionary:
 	words = nltk.word_tokenize(line)
 	tagged = nltk.pos_tag(words)
@@ -51,7 +51,6 @@ for line in dictionary:
 	to_write += '\n'
 
 	output.write(str(to_write))
-
-
+	
 tagged_sentences.close()
 output.close()
