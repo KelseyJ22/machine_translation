@@ -55,7 +55,7 @@ class Translator:
 			options = self.dictionary[key[0]]
 		else:
 			options = [key[0]] # punctuation needs no translation
-		option = self.choose_best(options, key)
+		#option = self.choose_best(options, key)
 		return options[0] # this can be modified later to not just use the first translation option
 
 	# basic direct translation
@@ -70,8 +70,6 @@ class Translator:
 				english_sentence.append(english_word)
 
 			self.translation[self.sentence_count] = english_sentence
-
-
 
 
 	# read in a file and convert into usable form
