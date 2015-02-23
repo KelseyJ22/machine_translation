@@ -6,12 +6,14 @@ class Translator:
 		self.dictionary = dict()
 		self.sentences = list()
 		self.translation = dict()
+                self.spanish_pos_dict = dict()
 		self.pos_dict = dict()
 		self.sentence_count = 0
 
 	# function to remove complex characters and punctuation
 	def simplify(self, word_pos):
 		tokens = word_pos.split('(')
+                tokens[1] = tokens[1].replace(')', '')
 		word = tokens[0]
 		word = word.strip()
 		word = word.lower()
@@ -41,22 +43,22 @@ class Translator:
 		word = token[0]
 		pos = token[1]
 		english_pos = self.pos_dict[pos]
-		if english_pos is not None:
+		if english_pos != None:
 			for op in options:
 				if self.get_pos(op) == english_pos:
-					return self.get_word(op)
-		return self.get_word(options[0]) # none of the options match the part of speech, so just return the first one
+					return op
+		return options[0] # none of the options match the part of speech, so just return the first one
 
 	# starter function to look up a word (later make more complicated/intelligent)
 	def translate(self, word):
-		print word
 		key = self.simplify(word)
 		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punction
 			options = self.dictionary[key[0]]
+                        #print options
 		else:
 			options = [key[0]] # punctuation needs no translation
-		#option = self.choose_best(options, key)
-		return options[0] # this can be modified later to not just use the first translation option
+		option = self.choose_best(options, key)
+		return option
 
 	# basic direct translation
 	def stupid_translate(self):
@@ -100,21 +102,39 @@ class Translator:
 				values = split[1].split(',') # multiple possible english words for a single spanish word
 				dictionary[key] = values
 			else:
-				print split # if anything prints, there's a problem with the dictionary
+				print "ERROR" # if anything prints, there's a problem with the dictionary
 		f.close() # clean up after yourself!
 		return dictionary
+
+        # reads in the Spanish POS to English POS dictionary, works like "parse_dict"
+        def parse_pos_dict(self, filename):
+                dictionary = dict()
+                f = open(filename)
+                for line in f:
+                        split = line.split(': ')
+                        if len(split) == 2:
+                                key = split[0]
+                                value = split[1].rstrip()
+                                if value == "None":
+                                        dictionary[key] = None
+                                else:
+                                        dictionary[key] = value
+                        else:
+                                print "ERROR"
+                f.close()
+                return dictionary
 
 def main():
 	sentences_file = 'data/tagged_sentences.txt'
 	dictionary_file = 'data/output_dictionary.txt'
 	pos_file = 'data/type_conversions.txt'
 	t = Translator()
-	t.pos_dict = t.parse_dict(pos_file)
+	t.pos_dict = t.parse_pos_dict(pos_file)
 	t.dictionary = t.parse_dict(dictionary_file)
 	t.read_file(sentences_file)
 	t.stupid_translate()
 
-	print t.translation
+        print t.translation
 
 if __name__ == '__main__':
 	main()

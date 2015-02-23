@@ -1,53 +1,53 @@
-Fc
-Fp
-None
-aq0cp0
-aq0cs0
-aq0fp0
-aq0fpp
-aq0fsp
-aq0mpp
-aq0ms0
-aq0msp
-cc
-da0fp0
-da0fs0
-da0mp0
-da0ms0
-da0ns0
-dd0mp0
-dd0ms0
-di0cs0
-di0fs0
-di0mp0
-di0ms0
-dn0cp0
-dp1fpp
-dp3cp0
-dp3cs0
-nccp000
-ncfp000
-ncfs000
-ncmp000
-ncms000
-np0000l
-np0000o
-p0000000
-p0300000
-pi0cs000
-pi0mp000
-pi0ms000
-pp3csd00
-pr0cn000
-rg
-rn
-spcms
-sps00
-vaip3s0
-vmg0000
-vmip3p0
-vmip3s0
-vmis3s0
-vmn0000
-vsip3s0
-vsn0000
+Fc: None
+Fp: None
+None: None
+aq0cp0: JJ 
+aq0cs0: JJ
+aq0fp0: JJ
+aq0fpp: JJ
+aq0fsp: JJ
+aq0mpp: JJ
+aq0ms0: JJ
+aq0msp: JJ
+cc: CC
+da0fp0: DT
+da0fs0: DT
+da0mp0: DT
+da0ms0: DT
+da0ns0: DT
+dd0mp0: DT
+dd0ms0: DT
+di0cs0: PDT
+di0fs0: PDT
+di0mp0: PDT
+di0ms0: PDT
+dn0cp0: DT
+dp1fpp: PRP$
+dp3cp0: PRP$
+dp3cs0: PRP$
+nccp000: NNS
+ncfp000: NNS
+ncfs000: NN
+ncmp000: NNS
+ncms000: NN
+np0000l: NNP
+np0000o: NNP
+p0000000: PRP
+p0300000: PRP
+pi0cs000: NN
+pi0mp000: JJ
+pi0ms000: JJ
+pp3csd00: PRP
+pr0cn000: WP
+rg: RB
+rn: RB
+spcms: IN
+sps00: TO
+vaip3s0: VBZ
+vmg0000: VBG
+vmip3p0: VBZ
+vmip3s0: VBZ
+vmis3s0: VBD
+vmn0000: VB
+vsip3s0: VB
+vsn0000: VB
