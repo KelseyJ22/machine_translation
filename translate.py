@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import naive_bayes import NaiveBayesSBLM
+
 class Translator:
 
 	def __init__(self):
@@ -9,6 +11,8 @@ class Translator:
                 self.spanish_pos_dict = dict()
 		self.pos_dict = dict()
 		self.sentence_count = 0
+		#TODO: create func to parse corpus, and pass into NaiveBayesSBLM
+		self.naive_bayes = NaiveBayesSBLM()
 
 	# function to remove complex characters and punctuation
 	def simplify(self, word_pos):
@@ -38,27 +42,74 @@ class Translator:
 		tokens = pair.split('/')
 		return tokens[0]
 
+	# takes a list of options and returns a list of just the words
+	def options_to_words(self, options):
+		words = list()
+		for op in options:
+			list.append(self.get_word(op).strip())
+		return words
+
 	# finds the English translation that matches the part of speech of the Spanish word, if there is one
-	def choose_best(self, options, token):
-		word = token[0]
+	def choose_matching_pos(self, options, token):
 		pos = token[1]
 		english_pos = self.pos_dict[pos]
+		matching_options = list()
 		if english_pos != None:
 			for op in options:
 				if self.get_pos(op) == english_pos:
-					return op
-		return options[0] # none of the options match the part of speech, so just return the first one
+					matching_options.append(self.get_word(op).strip())
+		if len(matching_option) > 0:
+			return matching_options
+		else:
+			# none of the options match the part of speech, so just return all of them
+			return self.options_to_words(options)
 
 	# starter function to look up a word (later make more complicated/intelligent)
 	def translate(self, word):
 		key = self.simplify(word)
 		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punction
 			options = self.dictionary[key[0]]
-                        #print options
 		else:
 			options = [key[0]] # punctuation needs no translation
-		option = self.choose_best(options, key)
-		return option
+		options = self.choose_matching_pos(options, key)
+		return options
+		#NOTE: need to strip() all possible words
+
+	#NOTE: sent is a list() of list()
+	#		curr_sent is a list() of str
+	#		best_sent is a tuple of list() of str and float
+	def best_sent_helper(self, sent_ops, curr_sentence, best_sent, best_score):
+		curr_sent = curr_sentence
+		if len(curr_sent) > len(sent_ops): 	#catchall case
+			return [best_sent, best_score]
+		if len(curr_sent) == len(sent_ops):
+			score = self.naive_bayes.score(curr_sent)
+			if score > best_score:
+				return [curr_sent, score]
+			else:
+				return [best_sent, best_score]
+
+		options = sent_ops[len(curr_sent)]
+		for word in options:
+			curr_sent[len(curr_sent)] = word
+			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
+			best_sent = best[0]
+			best_score = best[1]
+		return [best_sent, best_score]
+
+
+	# choose best english sentence from a list of list of possible words
+	# NOTE: At some point, will need to handle rearrangement of words in sentence.
+	# 		That should be done before this step.
+	def choose_best_sent(self, sent_ops):
+		if len(sent_ops) <= 0:
+			return []
+		curr_sentence = list()
+		best_sent = list()
+		best_score = 0.0
+		best = self.best_sent_helper(sent_ops, curr_sentence, best_sent, best_score)
+		return best
+
 
 	# basic direct translation
 	def stupid_translate(self):
@@ -67,11 +118,11 @@ class Translator:
 			self.sentence_count += 1
 
 			for word in line:
-				english_word = self.translate(word)
-				english_word = english_word.strip()
-				english_sentence.append(english_word)
+				poss_words = self.translate(word)
+				english_sentence.append(poss_words)
 
-			self.translation[self.sentence_count] = english_sentence
+			best_sentence = self.choose_best_sent(english_sentence)
+			self.translation[self.sentence_count] = best_sentence
 
 
 	# read in a file and convert into usable form
