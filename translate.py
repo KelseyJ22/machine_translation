@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import naive_bayes import NaiveBayesSBLM
+from naive_bayes import NaiveBayesSBLM
+from holbrook_corpus import HolbrookCorpus
 
 class Translator:
 
@@ -11,8 +12,11 @@ class Translator:
                 self.spanish_pos_dict = dict()
 		self.pos_dict = dict()
 		self.sentence_count = 0
-		#TODO: create func to parse corpus, and pass into NaiveBayesSBLM
-		self.naive_bayes = NaiveBayesSBLM()
+		#TODO: create custom func to parse corpus
+		trainPath = 'data/holbrook-tagged-train.dat'
+		trainingCorpus = HolbrookCorpus(trainPath)
+		self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
+		
 
 	# function to remove complex characters and punctuation
 	def simplify(self, word_pos):

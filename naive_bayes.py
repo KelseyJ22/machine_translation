@@ -4,14 +4,12 @@ import math, collections
 class NaiveBayesSBLM:
 
   def __init__(self, corpus):
-    """Initialize your data structures in the constructor."""
     self.unigramCounts = collections.defaultdict(lambda: 1)
     self.bigramCounts = collections.defaultdict(lambda: 0)
     self.total = 0
     self.train(corpus)
 
   def train(self, corpus):
-    """ Takes a HolbrookCorpus corpus, does whatever training is needed. """
     for sentence in corpus.corpus:
         prev = "<s>"
         for datum in sentence.data:  
@@ -23,9 +21,6 @@ class NaiveBayesSBLM:
             self.total += 1
 
   def score(self, sentence):
-    """ Takes a list of strings as argument and returns the log-probability of the 
-        sentence using your language model.
-    """
     score = 0.0
     prev = "<s>"
     V = len(self.unigramCounts.keys())
