@@ -75,15 +75,15 @@ class Translator:
 	def options_to_words(self, options):
 		words = list()
 		for op in options:
-			list.append(self.get_word(op).strip())
+			words.append(self.get_word(op).strip())
 		return words
 
 	# finds the English translation that matches the part of speech of the Spanish word, if there is one
 	def choose_matching_pos(self, options, token):
-		pos = token[1]
-		english_pos = self.pos_dict[pos]
+		spanish_pos = token[1]
+		english_pos = self.pos_dict[spanish_pos]
 		matching_options = list()
-		if english_pos != None:
+		if english_pos != 'None':
 			for op in options:
 				if self.get_pos(op) == english_pos:
 					matching_options.append(self.get_word(op).strip())
@@ -100,9 +100,8 @@ class Translator:
 			options = self.dictionary[key[0]]
 		else:
 			options = [key[0]] # punctuation needs no translation
-		options = self.choose_matching_pos(options, key)
-		return options
-		#NOTE: need to strip() all possible words
+		final_options = self.choose_matching_pos(options, key)
+		return final_options
 
 	#NOTE: sent is a list() of list()
 	#		curr_sent is a list() of str
@@ -151,8 +150,14 @@ class Translator:
 				poss_words = self.translate(word)
 				english_sentence.append(poss_words)
 
-			best_sentence = self.choose_best_sent(english_sentence)
-			self.translation[self.sentence_count] = best_sentence
+			# this will be replaced by the probabilistic sentence choosing later
+			final = list()
+			for elem in english_sentence:
+				final.append(elem[0])
+
+			#best_sentence = self.choose_best_sent(english_sentence)
+			#self.translation[self.sentence_count] = best_sentence
+			self.translation[self.sentence_count] = final
 
 
 	# read in a file and convert into usable form
@@ -215,7 +220,6 @@ def main():
 	t.read_file(sentences_file)
 	t.stupid_translate()
 
-        print t.translation
 
 if __name__ == '__main__':
 	main()
