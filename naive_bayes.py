@@ -9,31 +9,35 @@ class NaiveBayesSBLM:
     self.total = 0
     self.train(corpus)
 
+  # PARAMS:
+  # @corpus => list of sentences (lists)
+  # VARS:
+  # @sentence => list of words (strs)
+  # @word => strs
   def train(self, corpus):
-    for sentence in corpus.corpus:
+    for sentence in corpus:
         prev = "<s>"
-        for datum in sentence.data:  
-            token = datum.word
-            self.unigramCounts[token] = self.unigramCounts[token] + 1
-            bigram_token = prev + "|" + token
+        for word in sentence:  
+            self.unigramCounts[word] = self.unigramCounts[word] + 1
+            bigram_token = prev + "|" + word
             self.bigramCounts[bigram_token] = self.bigramCounts[bigram_token] + 1
-            prev = token
+            prev = word
             self.total += 1
 
   def score(self, sentence):
     score = 0.0
     prev = "<s>"
     V = len(self.unigramCounts.keys())
-    for token in sentence:
-        bigram_token = prev + "|" + token
+    for word in sentence:
+        bigram_token = prev + "|" + word
         count = self.bigramCounts[bigram_token]
         if count <= 0: #backoff
-            count = self.unigramCounts[token]
+            count = self.unigramCounts[word]
             score += math.log(count)
             score -= math.log(0.4*(self.total + V))
         else:
             score += math.log(count)
             score -= math.log(self.unigramCounts[prev])
-        prev = token
+        prev = word
 
     return score

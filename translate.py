@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from naive_bayes import NaiveBayesSBLM
-from holbrook_corpus import HolbrookCorpus
 
 class Translator:
 
@@ -13,10 +12,42 @@ class Translator:
 		self.pos_dict = dict()
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
-		trainPath = 'data/holbrook-tagged-train.dat'
-		trainingCorpus = TrainingCorpus(trainPath)
+		corpusPath = 'data/wiki_corpus.txt'
+		trainingCorpus = self.read_corpus(corpusPath)
 		self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
-		
+	
+	def __init__(self, filename=None):
+    if filename:
+      self.read_corpus(filename)
+    else:
+      self.corpus = list()
+    return 
+
+  
+  def read_corpus(self, filename):
+    try:
+    	f = open(filename).read()
+    except:
+    	return []
+    f = f.replace(',', '')
+    f = f.replace('\'', '')
+    f = f.replace('\"', '')
+    f = f.replace('!', '')
+    f = f.replace('?', '')
+    f = f.replace('(', '')
+    f = f.replace(')', '')
+    f = f.replace('[', '')
+    f = f.replace(']', '')
+    f = f.replace('$', '')
+    f = f.replace('#', '')
+    f = f.replace('@', '')
+    f = f.replace('%', '')
+    f = f.replace('*', '')
+    f = f.lower()
+    # remove other chars as necessary
+    self.corpus = f.split('.')
+    for i in range(len(self.corpus)):
+      self.corpus[i] = self.corpus[i].split()	
 
 	# function to remove complex characters and punctuation
 	def simplify(self, word_pos):
