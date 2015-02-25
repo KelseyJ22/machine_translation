@@ -85,8 +85,11 @@ class Translator:
 		matching_options = list()
 		if english_pos != 'None':
 			for op in options:
-				if self.get_pos(op) == english_pos:
-					matching_options.append(self.get_word(op).strip())
+				if len(op) > 0:
+					if self.get_pos(op) == english_pos:
+						matching_options.append(self.get_word(op).strip())
+				else:
+					matching_options.append(op)
 		if len(matching_options) > 0:
 			return matching_options
 		else:
@@ -120,7 +123,7 @@ class Translator:
 
 		options = sent_ops[len(curr_sent)]
 		for word in options:
-			curr_sent[len(curr_sent)] = word
+			curr_sent[len(curr_sent) - 1] = word
 			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
 			best_sent = best[0]
 			best_score = best[1]
@@ -151,13 +154,13 @@ class Translator:
 				english_sentence.append(poss_words)
 
 			# this will be replaced by the probabilistic sentence choosing later
-			final = list()
-			for elem in english_sentence:
-				final.append(elem[0])
+			#final = list()
+			#for elem in english_sentence:
+			#	final.append(elem[0])
 
-			#best_sentence = self.choose_best_sent(english_sentence)
-			#self.translation[self.sentence_count] = best_sentence
-			self.translation[self.sentence_count] = final
+			best_sentence = self.choose_best_sent(english_sentence)
+			self.translation[self.sentence_count] = best_sentence
+			#self.translation[self.sentence_count] = final
 
 
 	# read in a file and convert into usable form
