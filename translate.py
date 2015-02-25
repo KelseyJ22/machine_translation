@@ -15,39 +15,33 @@ class Translator:
 		corpusPath = 'data/wiki_corpus.txt'
 		trainingCorpus = self.read_corpus(corpusPath)
 		self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
-	
-	def __init__(self, filename=None):
-    if filename:
-      self.read_corpus(filename)
-    else:
-      self.corpus = list()
-    return 
 
   
-  def read_corpus(self, filename):
-    try:
-    	f = open(filename).read()
-    except:
-    	return []
-    f = f.replace(',', '')
-    f = f.replace('\'', '')
-    f = f.replace('\"', '')
-    f = f.replace('!', '')
-    f = f.replace('?', '')
-    f = f.replace('(', '')
-    f = f.replace(')', '')
-    f = f.replace('[', '')
-    f = f.replace(']', '')
-    f = f.replace('$', '')
-    f = f.replace('#', '')
-    f = f.replace('@', '')
-    f = f.replace('%', '')
-    f = f.replace('*', '')
-    f = f.lower()
-    # remove other chars as necessary
-    self.corpus = f.split('.')
-    for i in range(len(self.corpus)):
-      self.corpus[i] = self.corpus[i].split()	
+	def read_corpus(self, filename):
+		try:
+			f = open(filename).read()
+		except:
+			return []
+		f = f.replace(',', '')
+		f = f.replace('\'', '')
+		f = f.replace('\"', '')
+		f = f.replace('!', '')
+		f = f.replace('?', '')
+		f = f.replace('(', '')
+		f = f.replace(')', '')
+		f = f.replace('[', '')
+		f = f.replace(']', '')
+		f = f.replace('$', '')
+		f = f.replace('#', '')
+		f = f.replace('@', '')
+		f = f.replace('%', '')
+		f = f.replace('*', '')
+		f = f.lower()
+		# remove other chars as necessary
+		corpus = f.split('.')
+		for i in range(len(corpus)):
+			corpus[i] = corpus[i].split()	
+		return corpus
 
 	# function to remove complex characters and punctuation
 	def simplify(self, word_pos):
@@ -93,7 +87,7 @@ class Translator:
 			for op in options:
 				if self.get_pos(op) == english_pos:
 					matching_options.append(self.get_word(op).strip())
-		if len(matching_option) > 0:
+		if len(matching_options) > 0:
 			return matching_options
 		else:
 			# none of the options match the part of speech, so just return all of them
@@ -118,7 +112,8 @@ class Translator:
 		if len(curr_sent) > len(sent_ops): 	#catchall case
 			return [best_sent, best_score]
 		if len(curr_sent) == len(sent_ops):
-			score = self.naive_bayes.score(curr_sent)
+			#score = self.naive_bayes.score(curr_sent)
+			score = 0.0
 			if score > best_score:
 				return [curr_sent, score]
 			else:
