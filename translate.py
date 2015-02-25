@@ -14,7 +14,7 @@ class Translator:
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
 		trainPath = 'data/holbrook-tagged-train.dat'
-		trainingCorpus = HolbrookCorpus(trainPath)
+		trainingCorpus = TrainingCorpus(trainPath)
 		self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
 		
 
