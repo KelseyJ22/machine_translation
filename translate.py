@@ -122,8 +122,17 @@ class Translator:
 				return [best_sent, best_score]
 
 		options = sent_ops[len(curr_sent)]
+		#TEST
+		print "==================================="
+		print "OPTIONS: " + str(options)
+		print "CURR_SENT: " + str(curr_sent)
+		print "SENT_OPS: " + str(sent_ops)
+		curr_len = len(curr_sent)
 		for word in options:
-			curr_sent[len(curr_sent) - 1] = word
+			if len(curr_sent) <= curr_len:
+				curr_sent.append(word)
+			else:
+				curr_sent[len(curr_sent) - 1] = word
 			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
 			best_sent = best[0]
 			best_score = best[1]
