@@ -62,6 +62,9 @@ class Translator:
 		tokens[0] = word
 		return tokens
 
+
+# ------------------------- STARTING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
+	
 	# find instances of reflexive verbs and replace "se" with "esta/n" to translate properly
 	def replace_reflexive(self, sentence, index):
 		if index == len(sentence):
@@ -108,6 +111,7 @@ class Translator:
 			sentence[index] = 'do not(None)'
 		return sentence
 
+# ------------------------- ENDING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 
 	# gets the tagged part of speech from a word-POS pair, separated by '/'
 	def get_pos(self, pair):
