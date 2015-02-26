@@ -136,6 +136,7 @@ class Translator:
 
 		return all_sents
 
+
 	# choose best english sentence from a list of list of possible words
 	# NOTE: At some point, will need to handle rearrangement of words in sentence.
 	# 		That should be done before this step.
