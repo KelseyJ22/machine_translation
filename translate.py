@@ -142,7 +142,8 @@ class Translator:
 	# A FEW NEXT STEPS:
 	#	1) separate multiword tokens in sentence into multiple tokens !!ONLY RIGHT BEFORE!! scoring it with naive bayes (in self.get_best())
 	#	2) rearrange word order
-	#	3) bidirectional bigrams in naive bayes
+	#	3) add idiom translation
+	#	4) bidirectional bigrams in naive bayes
 	def choose_best_sentence(self, sent_ops):
 		if len(sent_ops) <= 0:
 			return []
@@ -153,7 +154,7 @@ class Translator:
 		sentences = self.generate_sentences(sent_ops)
 		best = self.get_best(sentences)
 		#TEST
-		print "BEST: " + best
+		print "BEST: " + str(best)
 		return best
 
 
