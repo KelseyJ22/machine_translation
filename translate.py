@@ -109,13 +109,20 @@ class Translator:
 	#NOTE: sent is a list() of list()
 	#		curr_sent is a list() of str
 	#		best_sent is a tuple of list() of str and float
+	"""
 	def best_sent_helper(self, sent_ops, curr_sentence, best_sent, best_score):
-		curr_sent = curr_sentence
+		#TEST
+		print "================ " + str(len(curr_sentence)) + " =================="
+		#curr_sent = curr_sentence
 		if len(curr_sent) > len(sent_ops): 	#catchall case
 			return [best_sent, best_score]
 		if len(curr_sent) == len(sent_ops):
-			#score = self.naive_bayes.score(curr_sent)
-			score = 0.0
+			score = self.naive_bayes.score(curr_sent)
+			#TEST
+			#print "--|-|--"
+			#print "CURR_SENT: " + str(curr_sent)
+			#print "CURR_SCORE: " + str(score)
+			#print "--|-|--"
 			if score > best_score:
 				return [curr_sent, score]
 			else:
@@ -123,21 +130,77 @@ class Translator:
 
 		options = sent_ops[len(curr_sent)]
 		#TEST
-		print "==================================="
-		print "OPTIONS: " + str(options)
-		print "CURR_SENT: " + str(curr_sent)
 		print "SENT_OPS: " + str(sent_ops)
+		print "OPTIONS: " + str(options)
+		print "======"
+
 		curr_len = len(curr_sent)
 		for word in options:
+			print "---"
 			if len(curr_sent) <= curr_len:
 				curr_sent.append(word)
+				print "0"
+				print "CURR_SENT: " + str(curr_sent)
 			else:
 				curr_sent[len(curr_sent) - 1] = word
+				print "1"
+				print "CURR_SENT: " + str(curr_sent)
+			print "---"
 			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
 			best_sent = best[0]
 			best_score = best[1]
+		#print "----------"
+		#print "BEST_SENT: " + str(best_sent)
+		#print "BEST_SCORE: " + str(best_score)
+		#print "----------"
+		#print "==================================="
 		return [best_sent, best_score]
+	"""
+	def best_sent_helper(self, sent_ops, curr_sentence, best_sent, best_score):
+		#TEST
+		print "================ " + str(len(curr_sentence)) + " =================="
+		#curr_sent = curr_sentence
+		if len(curr_sent) > len(sent_ops): 	#catchall case
+			return [best_sent, best_score]
+		if len(curr_sent) == len(sent_ops):
+			score = self.naive_bayes.score(curr_sent)
+			#TEST
+			#print "--|-|--"
+			#print "CURR_SENT: " + str(curr_sent)
+			#print "CURR_SCORE: " + str(score)
+			#print "--|-|--"
+			if score > best_score:
+				return [curr_sent, score]
+			else:
+				return [best_sent, best_score]
 
+		options = sent_ops[len(curr_sent)]
+		#TEST
+		print "SENT_OPS: " + str(sent_ops)
+		print "OPTIONS: " + str(options)
+		print "======"
+
+		curr_len = len(curr_sent)
+		for word in options:
+			print "---"
+			if len(curr_sent) <= curr_len:
+				curr_sent.append(word)
+				print "0"
+				print "CURR_SENT: " + str(curr_sent)
+			else:
+				curr_sent[len(curr_sent) - 1] = word
+				print "1"
+				print "CURR_SENT: " + str(curr_sent)
+			print "---"
+			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
+			best_sent = best[0]
+			best_score = best[1]
+		#print "----------"
+		#print "BEST_SENT: " + str(best_sent)
+		#print "BEST_SCORE: " + str(best_score)
+		#print "----------"
+		#print "==================================="
+		return [best_sent, best_score]
 
 	# choose best english sentence from a list of list of possible words
 	# NOTE: At some point, will need to handle rearrangement of words in sentence.
@@ -145,10 +208,16 @@ class Translator:
 	def choose_best_sent(self, sent_ops):
 		if len(sent_ops) <= 0:
 			return []
+		#TEST
+		print ">>>>>>>>>>>> SENT OPS <<<<<<<<<<<<<"
+		print str(sent_ops)
+		print ">>>>>>>>>>>> SENT OPS <<<<<<<<<<<<<"
 		curr_sentence = list()
 		best_sent = list()
-		best_score = 0.0
+		best_score = float('-inf')
 		best = self.best_sent_helper(sent_ops, curr_sentence, best_sent, best_score)
+		#TEST
+		print "BEST: " + str(best)
 		return best
 
 
