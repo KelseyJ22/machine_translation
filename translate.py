@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from naive_bayes import NaiveBayesSBLM
+from copy import deepcopy
 
 class Translator:
 
@@ -106,118 +107,53 @@ class Translator:
 		final_options = self.choose_matching_pos(options, key)
 		return final_options
 
-	#NOTE: sent is a list() of list()
-	#		curr_sent is a list() of str
-	#		best_sent is a tuple of list() of str and float
-	"""
-	def best_sent_helper(self, sent_ops, curr_sentence, best_sent, best_score):
-		#TEST
-		print "================ " + str(len(curr_sentence)) + " =================="
-		#curr_sent = curr_sentence
-		if len(curr_sent) > len(sent_ops): 	#catchall case
-			return [best_sent, best_score]
-		if len(curr_sent) == len(sent_ops):
-			score = self.naive_bayes.score(curr_sent)
-			#TEST
-			#print "--|-|--"
-			#print "CURR_SENT: " + str(curr_sent)
-			#print "CURR_SCORE: " + str(score)
-			#print "--|-|--"
+
+	def get_best(self, sentences):
+		best_sent = list()
+		best_score = float('-inf')
+		for sent in sentences:
+			score = self.naive_bayes.score(sent)
 			if score > best_score:
-				return [curr_sent, score]
-			else:
-				return [best_sent, best_score]
+				best_sent = deepcopy(sent)
+				best_score = score
+		return best_sent
 
-		options = sent_ops[len(curr_sent)]
-		#TEST
-		print "SENT_OPS: " + str(sent_ops)
-		print "OPTIONS: " + str(options)
-		print "======"
 
-		curr_len = len(curr_sent)
-		for word in options:
-			print "---"
-			if len(curr_sent) <= curr_len:
-				curr_sent.append(word)
-				print "0"
-				print "CURR_SENT: " + str(curr_sent)
-			else:
-				curr_sent[len(curr_sent) - 1] = word
-				print "1"
-				print "CURR_SENT: " + str(curr_sent)
-			print "---"
-			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
-			best_sent = best[0]
-			best_score = best[1]
-		#print "----------"
-		#print "BEST_SENT: " + str(best_sent)
-		#print "BEST_SCORE: " + str(best_score)
-		#print "----------"
-		#print "==================================="
-		return [best_sent, best_score]
-	"""
-	def best_sent_helper(self, sent_ops, curr_sentence, best_sent, best_score):
-		#TEST
-		print "================ " + str(len(curr_sentence)) + " =================="
-		#curr_sent = curr_sentence
-		if len(curr_sent) > len(sent_ops): 	#catchall case
-			return [best_sent, best_score]
-		if len(curr_sent) == len(sent_ops):
-			score = self.naive_bayes.score(curr_sent)
-			#TEST
-			#print "--|-|--"
-			#print "CURR_SENT: " + str(curr_sent)
-			#print "CURR_SCORE: " + str(score)
-			#print "--|-|--"
-			if score > best_score:
-				return [curr_sent, score]
-			else:
-				return [best_sent, best_score]
+	def generate_sentences(self, sent_ops):
+		all_sents = list()
+		if len(sent_ops) > 0:
+			for op in sent_ops[0]:
+				seed_list = [op]
+				all_sents.append(seed_list)
+			for i in range(1, len(sent_ops)):
+				temp_list = list()
+				for option in sent_ops[i]:
+					new_list = deepcopy(all_sents)
+					for sent in new_list:
+						sent.append(option)
+						temp_list.append(sent)
+				all_sents = deepcopy(temp_list)
 
-		options = sent_ops[len(curr_sent)]
-		#TEST
-		print "SENT_OPS: " + str(sent_ops)
-		print "OPTIONS: " + str(options)
-		print "======"
-
-		curr_len = len(curr_sent)
-		for word in options:
-			print "---"
-			if len(curr_sent) <= curr_len:
-				curr_sent.append(word)
-				print "0"
-				print "CURR_SENT: " + str(curr_sent)
-			else:
-				curr_sent[len(curr_sent) - 1] = word
-				print "1"
-				print "CURR_SENT: " + str(curr_sent)
-			print "---"
-			best = self.best_sent_helper(sent_ops, curr_sent, best_sent, best_score)
-			best_sent = best[0]
-			best_score = best[1]
-		#print "----------"
-		#print "BEST_SENT: " + str(best_sent)
-		#print "BEST_SCORE: " + str(best_score)
-		#print "----------"
-		#print "==================================="
-		return [best_sent, best_score]
+		return all_sents
 
 	# choose best english sentence from a list of list of possible words
 	# NOTE: At some point, will need to handle rearrangement of words in sentence.
 	# 		That should be done before this step.
-	def choose_best_sent(self, sent_ops):
+	# A FEW NEXT STEPS:
+	#	1) separate multiword tokens in sentence into multiple tokens !!ONLY RIGHT BEFORE!! scoring it with naive bayes (in self.get_best())
+	#	2) rearrange word order
+	#	3) bidirectional bigrams in naive bayes
+	def choose_best_sentence(self, sent_ops):
 		if len(sent_ops) <= 0:
 			return []
 		#TEST
-		print ">>>>>>>>>>>> SENT OPS <<<<<<<<<<<<<"
-		print str(sent_ops)
-		print ">>>>>>>>>>>> SENT OPS <<<<<<<<<<<<<"
-		curr_sentence = list()
-		best_sent = list()
-		best_score = float('-inf')
-		best = self.best_sent_helper(sent_ops, curr_sentence, best_sent, best_score)
+		#print ">>>>>>>>>>>> SENT OPS <<<<<<<<<<<<<"
+		#print str(sent_ops)
+		#print ">>>>>>>>>>>>          <<<<<<<<<<<<<"
+		sentences = self.generate_sentences(sent_ops)
+		best = self.get_best(sentences)
 		#TEST
-		print "BEST: " + str(best)
+		print "BEST: " + best
 		return best
 
 
@@ -231,14 +167,8 @@ class Translator:
 				poss_words = self.translate(word)
 				english_sentence.append(poss_words)
 
-			# this will be replaced by the probabilistic sentence choosing later
-			#final = list()
-			#for elem in english_sentence:
-			#	final.append(elem[0])
-
-			best_sentence = self.choose_best_sent(english_sentence)
+			best_sentence = self.choose_best_sentence(english_sentence)
 			self.translation[self.sentence_count] = best_sentence
-			#self.translation[self.sentence_count] = final
 
 
 	# read in a file and convert into usable form
