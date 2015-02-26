@@ -31,9 +31,10 @@ Están tomando las medidas adecuadas para prevenir y detectar este tipo de ataqu
 Strategies:
 1. Part of speech tagging in Spanish to choose appropriate English translation
 2. Part of speech tagging in English to reorder adjectives and nouns
-3. NaiveBayes sentence probability to choose best translation from among options
-4. NaiveBayes to test removal of words (because Spanish uses more words than English)
-5.
-6.
-7.
-8.
+3. Eliminate duplicates in English sentences (usually "to")
+4. NaiveBayes sentence probability to choose best translation from among options
+5. NaiveBayes to test removal of words (because Spanish uses more words than English)
+6. Address prepositions: "por"-->"by","of","from"; "que"-->"that","what"
+7. Bidirectional NaiveBayes to fix things like "web" before "spider"
+8. Idiomatic expression translation ("a ella le gusta"-->"she likes" rather than "to she it it pleases" as the dictionary would otherwise translate it)
+9. 
