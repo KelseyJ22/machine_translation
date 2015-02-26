@@ -42,7 +42,7 @@ pr0cn000: WP
 rg: RB
 rn: RB
 spcms: IN
-sps00: TO
+sps00: IN
 vaip3s0: VBZ
 vmg0000: VBG
 vmip3p0: VBZ

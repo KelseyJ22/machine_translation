@@ -86,7 +86,7 @@ class Translator:
 		matching_options = list()
 		if english_pos != 'None':
 			for op in options:
-				if len(op) > 0:
+				if len(op) > 0: # there will be no options for whitespace or punctuation
 					if self.get_pos(op) == english_pos:
 						matching_options.append(self.get_word(op).strip())
 				else:
@@ -108,17 +108,31 @@ class Translator:
 		return final_options
 
 
+	# eliminate cases of duplicate words and make each word its own token for NaiveBayes
+	def dedup_and_separate(self, sentence):
+		uniquified = list()
+		for token in sentence:
+			split = token.split() # separate out words
+			for elem in split:
+				if len(uniquified) == 0:
+					uniquified.append(elem)
+				elif uniquified[-1] != elem: # don't append duplicate elements
+					uniquified.append(elem)
+		return uniquified
+
+	# compares all possible sentences to find the most probable
 	def get_best(self, sentences):
 		best_sent = list()
 		best_score = float('-inf')
 		for sent in sentences:
-			score = self.naive_bayes.score(sent)
+			updated = self.dedup_and_separate(sent)
+			score = self.naive_bayes.score(updated)
 			if score > best_score:
 				best_sent = deepcopy(sent)
 				best_score = score
 		return best_sent
 
-
+	# creates ans stores all permutations of the translation words from the bilingual dictionary
 	def generate_sentences(self, sent_ops):
 		all_sents = list()
 		if len(sent_ops) > 0:
@@ -138,23 +152,11 @@ class Translator:
 
 
 	# choose best english sentence from a list of list of possible words
-	# NOTE: At some point, will need to handle rearrangement of words in sentence.
-	# 		That should be done before this step.
-	# A FEW NEXT STEPS:
-	#	1) separate multiword tokens in sentence into multiple tokens !!ONLY RIGHT BEFORE!! scoring it with naive bayes (in self.get_best())
-	#	2) rearrange word order
-	#	3) add idiom translation
-	#	4) bidirectional bigrams in naive bayes
 	def choose_best_sentence(self, sent_ops):
 		if len(sent_ops) <= 0:
 			return []
-		#TEST
-		#print ">>>>>>>>>>>> SENT OPS <<<<<<<<<<<<<"
-		#print str(sent_ops)
-		#print ">>>>>>>>>>>>          <<<<<<<<<<<<<"
 		sentences = self.generate_sentences(sent_ops)
 		best = self.get_best(sentences)
-		#TEST
 		print "BEST: " + str(best)
 		return best
 
@@ -167,9 +169,9 @@ class Translator:
 
 			for word in line:
 				poss_words = self.translate(word)
-				english_sentence.append(poss_words)
+				english_sentence.append(poss_words) # list of lists of potential translations at each index
 
-			best_sentence = self.choose_best_sentence(english_sentence)
+			best_sentence = self.choose_best_sentence(english_sentence) # use Naive Bayes to get the most likely sentence
 			self.translation[self.sentence_count] = best_sentence
 
 
@@ -227,6 +229,7 @@ def main():
 	sentences_file = 'data/tagged_sentences.txt'
 	dictionary_file = 'data/output_dictionary.txt'
 	pos_file = 'data/type_conversions.txt'
+	
 	t = Translator()
 	t.pos_dict = t.parse_pos_dict(pos_file)
 	t.dictionary = t.parse_dict(dictionary_file)

@@ -1,0 +1,76 @@
+SUPER SIMPLE DIRECT TRANSLATION
+['according to/TO', 'the/DT\n', 'authors/NNS', 'of the/DT\n', 'study/NN\n', '', 'these/DT\n', 'teeth/NN\n', 'are/VBP\n', 'compound/NN', 'from/IN', 'one/CD', 'material/NN', 'what/WP', 'is/VBZ\n', 'including/VBG\n', 'more/JJR\n', 'strong/JJ\n', 'what/WP', 'the/DT\n', 'fabric/JJ', 'from/IN', 'spider/NN\n', '']
+['these/DT\n', 'teeth/NN\n', 'he knows/VBZ', 'component/NN\n', 'from/IN', 'fibers/NNS', 'very/RB\n', 'little/JJ', '', 'comfortable/JJ', 'from/IN', 'one/CD', 'way/NN', 'personal/JJ', '']
+['we have to/TO', 'to think/VB', 'in/IN\n', 'to make/VB', 'our/PRP$\n', 'own/JJ', 'structures/NNS\n', 'following/VBG\n', 'the/DT\n', 'same/JJ', 'principles/NNS', 'from/IN', 'drawing/VBG', '']
+['one/CD', 'girl/NN\n', 'from/IN', 'seven/CD\n', 'years/NNS\n', 'fan/NN', 'to/TO', 'the/DT\n', 'technology/NN\n', 'needs/NNS', 'little/JJ\n', 'more/JJR\n', 'from/IN', 'ten/VBN\n', 'minutes/NNS\n', 'for/IN', 'to hack/VB\n', 'one/CD', 'internet/NN', 'wireless/NN', 'or/CC\n', 'public wifi/NN\n', '']
+['is/VBZ\n', 'it/PRP\n', 'what/WP', 'he discovered/VBD', 'one/CD', 'business/NN', 'specialized/VBN\n', 'in/IN\n', 'security/NN\n', 'computer science/NN', 'what/WP', 'wanted/VBD\n', 'to alert/VB\n', 'about/IN', 'the/DT\n', 'dangers/NNS\n', 'from/IN', 'to connect/VB', 'to/TO', 'webs/NNS\n', 'wifi/NN\n', 'without/IN\n', 'the/DT\n', 'security/NN\n', 'sufficient/NN\n', '']
+['Betsy/NNP\n', 'Davis/NNP\n', 'is/VBZ\n', 'one/CD', 'girl/NN\n', 'from/IN', 'seven/CD\n', 'years/NNS\n', 'what/WP', 'he lives/VBZ', 'in/IN\n', 'London/NNP\n', 'and/CC', 'to/TO', 'the/DT\n', 'what/WP', 'the/DT\n', 'pleasure/NN\n', 'the/DT\n', 'technology/NN\n', '']
+['someone/NN', 'no/DT\n', 'they/PRP require/VBP\n', 'one/CD', 'name/NN', 'from/IN', 'user/NN', 'and/CC', 'password/NN\n', '', 'for/IN\n', 'it/PRP\n', 'what/WP', 'are/VBP\n', 'open/JJ\n', 'to/TO', 'anyone/NN', '']
+['the/DT\n', 'parliament/NN\n', 'european/JJ\n', 'had/VBD to/TO\n', 'what/WP', 'to disconnect/VB\n', 'the/DT\n', 'year/NN\n', 'past/JJ\n', 'his/PRP$', 'system/NN\n', 'from/IN', 'wifi/NN\n', 'public/JJ\n', 'through/IN\n', 'to be/VB\n', 'object/NN\n', 'from/IN', 'one/CD\n', 'from/IN', 'these/DT\n', 'attacks/NNS\n', '']
+['to the/DT\n', 'to incorporate/VB\n', 'thread/NN\n', 'from/IN', 'spider/NN\n', 'in/IN\n', 'the/DT\n', 'membrane/NN\n', '', 'he knows/VBZ', 'become better/RBR\n', 'enormous/JJ\n', 'their/PRP$\n', 'properties/NNS', 'driver/NN', '']
+['in/IN\n', 'the/DT\n', 'case/NN', 'from/IN', 'one/CD', 'battery/NN\n', '', 'extends/NNS', 'his/PRP$', 'life/NN\n', 'useful/JJ\n', 'and/CC', 'the/DT\n', 'time/NN', 'from/IN', 'functioning/VBG', 'before/IN\n', 'from/IN', 'the/DT\n', 'next/JJ', 'recharges/NNS', '']
+['other/JJ\n', 'advantage/NN\n', 'is/VBZ\n', 'what/WP', 'is/VBZ\n', 'one/CD', 'material/NN', 'natural/JJ', '', 'in/IN\n', 'terms/NNS', 'environmental/JJ', '', 'he/PRP reduces/VBZ', 'the/DT\n', 'used/VBN\n', 'from/IN', 'elements/NNS\n', 'contaminants/NNS', 'utilized/VBN\n', 'commonly/RB', 'in/IN\n', 'the/DT\n', 'batteries/NNS', '']
+['the/DT\n', 'interest/NN', 'scientist/NN\n', 'has/VBZ\n', 'state/NN', 'focused/VBN\n', 'principally/RB\n', 'in/IN\n', 'as/IN', 'to/TO reproduce/VB', 'their/PRP$\n', 'properties/NNS', 'in/IN\n', 'one/CD', 'material/NN', 'synthetic/JJ\n', '']
+['from/IN', 'agreement/NN', 'to/TO', 'the/DT\n', 'investigation/NN\n', '', 'the/DT\n', 'band/NN', 'I infect/VBP', 'with/IN\n', 'malware/NN\n', 'or/CC\n', 'code/NN\n', 'malign/NN', 'the/DT\n', 'computers/NNS\n', 'from/IN', 'the/DT\n', 'employees/NNS\n', 'from/IN', 'the/DT\n', 'institutions/NNS\n', 'banking/VBG', '']
+['he knows/VBZ', 'treats/NNS\n', 'from/IN', 'one/CD', 'robbery/NN', 'internet/NN\n', 'very/RB\n', 'good/JJ', 'and/CC', 'professional/JJ\n', '']
+['are/VBP\n', 'taking/VBG', 'the/DT\n', 'measurements/NNS', 'suitable/JJ', 'for/IN', 'to prevent/VB', 'and/CC', 'to detect/VB\n', 'this/DT\n', 'type/NN', 'from/IN', 'attacks/NNS\n', 'and/CC', 'to minimize/VB\n', 'anyone/NN\n', 'effect/NN', 'from/IN', 'these/DT\n', 'about/IN', 'their/PRP$\n', 'customer/NN', '']
+
+
+
+
+
+DIRECT TRANSLATION WITH POS CHOICE IMPLEMENTED
+['according to', 'the', 'authors', 'of the', 'study', '', 'these', 'teeth', 'are', 'compound', 'from', 'one', 'material', 'what', 'is', 'including', 'more', 'strong', 'what', 'the', 'fabric', 'from', 'spider', '']
+['these', 'teeth', 'he knows', 'component', 'from', 'fibers', 'very', 'little', '', 'comfortable', 'from', 'one', 'way', 'personal', '']
+['we have to', 'to think', 'in', 'to make', 'our', 'own', 'structures', 'following', 'the', 'same', 'principles', 'from', 'drawing', '']
+['one', 'girl', 'from', 'seven', 'years', 'fan', 'at', 'the', 'technology', 'needs', 'little', 'more', 'from', 'ten', 'minutes', 'for', 'to hack', 'one', 'internet', 'wireless', 'or', 'public wifi', '']
+['is', 'it', 'what', 'he discovered', 'one', 'business', 'specialized', 'in', 'security', 'computer science', 'what', 'wanted', 'to alert', 'about', 'the', 'dangers', 'from', 'to connect', 'at', 'webs', 'wifi', 'without', 'the', 'security', 'sufficient', '']
+['Betsy', 'Davis', 'is', 'one', 'girl', 'from', 'seven', 'years', 'what', 'he lives', 'in', 'London', 'and', 'at', 'the', 'what', 'the', 'pleasure', 'the', 'technology', '']
+['someone', 'no', 'they', 'one', 'name', 'from', 'user', 'and', 'password', '', 'for', 'it', 'what', 'are', 'open', 'at', 'anyone', '']
+['the', 'parliament', 'european', 'had', 'what', 'to disconnect', 'the', 'year', 'past', 'his', 'system', 'from', 'wifi', 'public', 'through', 'to be', 'object', 'from', 'one', 'from', 'these', 'attacks', '']
+['to the', 'to incorporate', 'thread', 'from', 'spider', 'in', 'the', 'membrane', '', 'he knows', 'become better', 'enormous', 'their', 'properties', 'driver', '']
+['in', 'the', 'case', 'from', 'one', 'battery', '', 'extends', 'his', 'life', 'useful', 'and', 'the', 'time', 'from', 'functioning', 'before', 'from', 'the', 'next', 'recharges', '']
+['other', 'advantage', 'is', 'what', 'is', 'one', 'material', 'natural', '', 'in', 'terms', 'environmental', '', 'he', 'the', 'used', 'from', 'elements', 'contaminants', 'utilized', 'commonly', 'in', 'the', 'batteries', '']
+['the', 'interest', 'scientist', 'has', 'state', 'focused', 'principally', 'in', 'as', 'to', 'their', 'properties', 'in', 'one', 'material', 'synthetic', '']
+['from', 'agreement', 'at', 'the', 'investigation', '', 'the', 'band', 'I infect', 'with', 'malware', 'or', 'code', 'malign', 'the', 'computers', 'from', 'the', 'employees', 'from', 'the', 'institutions', 'banking', '']
+['he knows', 'treats', 'from', 'one', 'robbery', 'internet', 'very', 'good', 'and', 'professional', '']
+['are', 'taking', 'the', 'measurements', 'suitable', 'for', 'to prevent', 'and', 'to detect', 'this', 'type', 'from', 'attacks', 'and', 'to minimize', 'anyone', 'effect', 'from', 'these', 'about', 'their', 'customer', '']
+
+
+
+NAIVE BAYES ON ALL POSSIBLE
+BEST: ['following', 'the', 'authors', 'of the', 'study', '', 'these', 'teeth', 'are', 'composed', 'of', 'a', 'material', 'what', 'is', 'including', 'more', 'strong', 'what', 'the', 'fabric', 'of', 'spider', '']
+BEST: ['these', 'teeth', 'he knows', 'component', 'of', 'fibers', 'very', 'little', '', 'organized', 'of', 'a', 'way', 'personal', '']
+BEST: ['we have to', 'to think', 'in', 'to make', 'our', 'own', 'structures', 'following', 'the', 'same', 'principles', 'of', 'sketch', '']
+BEST: ['a', 'girl', 'of', 'seven', 'years', 'fan', 'to', 'the', 'technology', 'needs', 'little', 'more', 'of', 'ten', 'minutes', 'to', 'to hack', 'a', 'internet', 'wireless', 'or', 'public wifi', '']
+BEST: ['is', 'it', 'what', 'he discovered', 'a', 'business', 'specialized', 'in', 'security', 'computer science', 'what', 'wanted', 'to alert', 'over', 'the', 'dangers', 'of', 'to connect', 'to', 'webs', 'wifi', 'without', 'the', 'security', 'sufficient', '']
+BEST: ['Betsy', 'Davis', 'is', 'a', 'girl', 'of', 'seven', 'years', 'what', 'he lives', 'in', 'London', 'and', 'to', 'the', 'what', 'the', 'pleasure', 'the', 'technology', '']
+BEST: ['some', 'no', 'they', 'a', 'name', 'of', 'user', 'and', 'password', '', 'for', 'it', 'what', 'are', 'open', 'to', 'anyone', '']
+BEST: ['the', 'parliament', 'european', 'had', 'what', 'to disconnect', 'the', 'year', 'past', 'his', 'system', 'of', 'wifi', 'public', 'through', 'to be', 'object', 'of', 'one', 'of', 'these', 'attacks', '']
+BEST: ['to the', 'to incorporate', 'thread', 'of', 'spider', 'in', 'the', 'membrane', '', 'he knows', 'become better', 'enormous', 'their', 'properties', 'host', '']
+BEST: ['in', 'the', 'fact', 'of', 'a', 'battery', '', 'extends', 'his', 'life', 'useful', 'and', 'the', 'time', 'of', 'operating', 'before', 'of', 'the', 'next', 'recharges', '']
+BEST: ['other', 'advantage', 'is', 'what', 'is', 'a', 'material', 'natural', '', 'in', 'terms', 'environmental', '', 'he', 'the', 'used', 'from', 'elements', 'contaminants', 'utilized', 'frequently', 'in', 'the', 'batteries', '']
+BEST: ['the', 'attention', 'scientist', 'has', 'state', 'focused', 'principally', 'in', 'because', 'to', 'their', 'properties', 'in', 'a', 'material', 'synthetic', '']
+BEST: ['by', 'agreement', 'to', 'the', 'investigation', '', 'the', 'group', 'I infect', 'with', 'malware', 'or', 'code', 'malign', 'the', 'computers', 'of', 'the', 'employees', 'of', 'the', 'institutions', 'bank', '']
+BEST: ['he knows', 'treats', 'of', 'a', 'robbery', 'internet', 'very', 'good', 'and', 'professional', '']
+BEST: ['are', 'taking', 'the', 'measurements', 'suitable', 'to', 'to prevent', 'and', 'to detect', 'this', 'kind', 'of', 'attacks', 'and', 'to minimize', 'anyone', 'effect', 'of', 'these', 'about', 'their', 'guest', '']
+
+
+
+
+DEDUP'D AND SEPARATED TOKENS TO CLASSIFY
+BEST: ['following', 'the', 'authors', 'of the', 'study', '', 'these', 'teeth', 'are', 'composed', 'of', 'a', 'material', 'what', 'is', 'including', 'more', 'strong', 'what', 'the', 'fabric', 'of', 'spider', '']
+BEST: ['these', 'teeth', 'he knows', 'component', 'of', 'fibers', 'very', 'little', '', 'organized', 'of', 'a', 'way', 'personal', '']
+BEST: ['we must', 'to think', 'in', 'to make', 'our', 'own', 'structures', 'following', 'the', 'same', 'principles', 'of', 'sketch', '']
+BEST: ['a', 'girl', 'of', 'seven', 'years', 'fan', 'at', 'the', 'technology', 'needs', 'little', 'more', 'of', 'ten', 'minutes', 'for', 'to hack', 'a', 'internet', 'wireless', 'or', 'public wifi', '']
+BEST: ['is', 'it', 'what', 'he discovered', 'a', 'business', 'specialized', 'in', 'security', 'information technology', 'what', 'wanted', 'to alert', 'about', 'the', 'dangers', 'from', 'to connect', 'by', 'webs', 'wifi', 'without', 'the', 'security', 'sufficient', '']
+BEST: ['Betsy', 'Davis', 'is', 'a', 'girl', 'of', 'seven', 'years', 'what', 'he lives', 'in', 'London', 'and', 'at', 'the', 'what', 'the', 'pleasure', 'the', 'technology', '']
+BEST: ['some', 'no', 'they', 'a', 'name', 'of', 'user', 'and', 'password', '', 'for', 'it', 'what', 'are', 'open', 'by', 'anyone', '']
+BEST: ['the', 'parliament', 'european', 'had', 'what', 'to disconnect', 'the', 'year', 'past', 'his', 'system', 'of', 'wifi', 'public', 'through', 'to be', 'object', 'of', 'one', 'of', 'these', 'attacks', '']
+BEST: ['to the', 'to incorporate', 'thread', 'of', 'spider', 'in', 'the', 'membrane', '', 'he knows', 'become better', 'enormous', 'their', 'properties', 'host', '']
+BEST: ['in', 'the', 'fact', 'of', 'a', 'battery', '', 'extends', 'his', 'life', 'useful', 'and', 'the', 'time', 'of', 'operating', 'before', 'of', 'the', 'next', 'recharges', '']
+BEST: ['other', 'advantage', 'is', 'what', 'is', 'a', 'material', 'natural', '', 'in', 'terms', 'environmental', '', 'he', 'the', 'used', 'from', 'elements', 'contaminants', 'utilized', 'frequently', 'in', 'the', 'batteries', '']
+BEST: ['the', 'attention', 'scientist', 'has', 'state', 'focused', 'principally', 'in', 'because', 'to', 'their', 'properties', 'in', 'a', 'material', 'synthetic', '']
+BEST: ['from', 'agreement', 'by', 'the', 'investigation', '', 'the', 'group', 'I infect', 'with', 'malware', 'or', 'code', 'malign', 'the', 'computers', 'of', 'the', 'employees', 'of', 'the', 'institutions', 'bank', '']
+BEST: ['he knows', 'treats', 'of', 'a', 'robbery', 'internet', 'very', 'good', 'and', 'professional', '']
+BEST: ['are', 'taking', 'the', 'measurements', 'suitable', 'for', 'to prevent', 'and', 'to detect', 'this', 'kind', 'of', 'attacks', 'and', 'to minimize', 'anyone', 'effect', 'of', 'these', 'about', 'their', 'guest', '']
