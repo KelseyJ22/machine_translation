@@ -9,7 +9,7 @@ class Translator:
 		self.dictionary = dict()
 		self.sentences = list()
 		self.translation = dict()
-                self.spanish_pos_dict = dict()
+        self.spanish_pos_dict = dict()
 		self.pos_dict = dict()
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
@@ -62,15 +62,64 @@ class Translator:
 		tokens[0] = word
 		return tokens
 
+	# find instances of reflexive verbs and replace "se" with "esta/n" to translate properly
+	def replace_reflexive(self, sentence, index):
+		if index == len(sentence):
+			return sentence
+		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
+			sentence[index] = 'estan(None)'
+		return sentence
+
+	# swap the order of adjectives and nouns
+	def reorder_adjectives(self, sentence):
+		result = list()
+		for i in range(0, len(sentence)):
+			word = sentence[i]
+			if self.get_pos(word) == 'JJ':
+				if i < len(sentence):
+					result.append(sentence[i+1]) # this will result in duplicates -- doesn't matter as long as call before deduping
+					result.append(word)
+				else:
+					result.append(word)
+			result.append(word)
+		return result		
+
+	# correct issues like "a ella le gusta"
+	def idiomatic_fix(self, sentence):
+		sentence_str = str(sentence)
+		final_str = ''
+		regex = '(.*) a\(sps00\) ([A-z]{1,}\(.*\) ?[A-z]{0,}\(.*\)) le\(pp3csd00\) (?:gusta|encanta|odia|gustan|encantan|odian)(.*)'
+		m = re.findall(sentence_str, regex)
+		if len(m) == 3:
+			final_str = m[0] + m[1] + ' likes(None) ' + m[2]
+		elif len(m) == 2:
+			final_str = m[0] + ' likes(None) ' + m[1] 
+		else:
+			final_str = sentence_str # no change
+		final = final_str.split() # return an array split on spaces
+		return final
+
+
+	# "no require" = "don't require" etc
+	def fix_negation(self, sentence, index):
+		if index == len(sentence):
+			return sentence
+		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
+			sentence[index] = 'do not(None)'
+		return sentence
+
+
 	# gets the tagged part of speech from a word-POS pair, separated by '/'
 	def get_pos(self, pair):
 		tokens = pair.split('/')
 		return tokens[1]
 
+
 	# gets the word from a word-POS pair, separated by '/'
 	def get_word(self, pair):
 		tokens = pair.split('/')
 		return tokens[0]
+
 
 	# takes a list of options and returns a list of just the words
 	def options_to_words(self, options):
@@ -78,6 +127,7 @@ class Translator:
 		for op in options:
 			words.append(self.get_word(op).strip())
 		return words
+
 
 	# finds the English translation that matches the part of speech of the Spanish word, if there is one
 	def choose_matching_pos(self, options, token):
@@ -96,6 +146,7 @@ class Translator:
 		else:
 			# none of the options match the part of speech, so just return all of them
 			return self.options_to_words(options)
+
 
 	# starter function to look up a word (later make more complicated/intelligent)
 	def translate(self, word):
@@ -120,6 +171,7 @@ class Translator:
 					uniquified.append(elem)
 		return uniquified
 
+
 	# compares all possible sentences to find the most probable
 	def get_best(self, sentences):
 		best_sent = list()
@@ -131,6 +183,7 @@ class Translator:
 				best_sent = deepcopy(sent)
 				best_score = score
 		return best_sent
+
 
 	# creates ans stores all permutations of the translation words from the bilingual dictionary
 	def generate_sentences(self, sent_ops):

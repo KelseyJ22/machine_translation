@@ -63,6 +63,7 @@ diez:ten/VBN
 digo:I said/VBD
 dise:said/VBD, said/VBD, said/VBD
 diseno:drawing/VBG, pattern/NN, sketch/NN, design/NN
+do not:do not/None
 duro:hard/JJ, tough/JJ, harsh/JJ
 efecto:effect/NN, impression/NN, purpose/NN
 el:the/DT
@@ -111,6 +112,7 @@ la:the/DT
 lapa:limpet/NN, leech/NN
 las:the/DT
 le:the/DT
+likes:likes/None
 lo:it/PRP
 londres:London/NNP
 los:the/DT
