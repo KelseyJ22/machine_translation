@@ -9,8 +9,8 @@ class Translator:
 		self.dictionary = dict()
 		self.sentences = list()
 		self.translation = dict()
-        self.spanish_pos_dict = dict()
-		self.pos_dict = dict()
+                self.spanish_pos_dict = dict()
+                self.pos_dict = dict()
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
 		corpusPath = 'data/wiki_corpus.txt'
