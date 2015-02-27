@@ -73,19 +73,23 @@ class Translator:
 			sentence[index] = 'estan(None)'
 		return sentence
 
-	# swap the order of adjectives and nouns
+	# DONE
+        # swap the order of adjectives and nouns
 	def reorder_adjectives(self, sentence):
-		result = list()
-		for i in range(0, len(sentence)):
-			word = sentence[i]
-			if self.get_pos(word) == 'JJ':
-				if i < len(sentence):
-					result.append(sentence[i+1]) # this will result in duplicates -- doesn't matter as long as call before deduping
-					result.append(word)
-				else:
-					result.append(word)
-			result.append(word)
-		return result		
+                result = sentence[:]
+                for i, word in enumerate(sentence):
+                        if i == len(sentence) - 1:
+                                continue
+                        next_word = sentence[i+1]
+                        if word and next_word:  #making sure we don't have spaces or punctuation here
+                                if self.get_pos(word).startswith("NN") and self.get_pos(next_word).startswith("JJ"):
+                                        result[i] = next_word
+                                        result[i+1] = word
+
+                
+                if "".join(result) == "".join(sentence):
+                        return []
+                return result
 
 	# correct issues like "a ella le gusta"
 	def idiomatic_fix(self, sentence):
@@ -142,20 +146,21 @@ class Translator:
 			for op in options:
 				if len(op) > 0: # there will be no options for whitespace or punctuation
 					if self.get_pos(op) == english_pos:
-						matching_options.append(self.get_word(op).strip())
+						matching_options.append(op)
 				else:
 					matching_options.append(op)
 		if len(matching_options) > 0:
 			return matching_options
 		else:
 			# none of the options match the part of speech, so just return all of them
-			return self.options_to_words(options)
+                        return options
+			#return self.options_to_words(options)
 
 
 	# starter function to look up a word (later make more complicated/intelligent)
 	def translate(self, word):
 		key = self.simplify(word)
-		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punction
+		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punctuation
 			options = self.dictionary[key[0]]
 		else:
 			options = [key[0]] # punctuation needs no translation
@@ -205,7 +210,16 @@ class Translator:
 						temp_list.append(sent)
 				all_sents = deepcopy(temp_list)
 
-		return all_sents
+                for sent in all_sents:
+                        for i, word in enumerate(sent):
+                                sent[i] = word.replace("\n", "")
+
+                for i, sent in enumerate(all_sents):
+                        new_sent = self.reorder_adjectives(sent)
+                        if new_sent:
+                                all_sents[i] = new_sent
+
+                return all_sents
 
 
 	# choose best english sentence from a list of list of possible words
@@ -213,6 +227,9 @@ class Translator:
 		if len(sent_ops) <= 0:
 			return []
 		sentences = self.generate_sentences(sent_ops)
+                for sent in sentences:
+                        for i, word in enumerate(sent):
+                                sent[i] = self.get_word(word)
 		best = self.get_best(sentences)
 		print "BEST: " + str(best)
 		return best
