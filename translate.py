@@ -9,7 +9,7 @@ class Translator:
 		self.dictionary = dict()
 		self.sentences = list()
 		self.translation = dict()
-                self.spanish_pos_dict = dict()
+                self.spanish_pos_dict = dict()  #not sure why this is needed -farhan
                 self.pos_dict = dict()
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
@@ -107,14 +107,26 @@ class Translator:
 		return final
 
 
-	# "no require" = "don't require" etc
-	def fix_negation(self, sentence, index):
-		if index == len(sentence):
-			return sentence
-		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
-			sentence[index] = 'do not(None)'
-		return sentence
+        # DONE
+        # "no require" = "don't require" etc
+	def fix_negation(self, sentence):
+                result = sentence[:]
+                for i, word in enumerate(sentence):
+                        if i == len(sentence) - 1:
+                                continue
+                        next_word = sentence[i+1]
+                        if word and next_word:
+                                if self.get_word(word) == "no" and (self.get_pos(next_word).startswith("VB") or self.get_pos(next_word).startswith("IN")):
+                                        verb = next_word.split(' ')
+                                        verb[0] = "don't"
+                                        fixed_verb = ' '.join(verb)
+                                        result[i+1] = fixed_verb
+                                        del result[i]
+                if len(result) == len(sentence):
+                        return []
+                return result
 
+                                        
 # ------------------------- ENDING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 
 	# gets the tagged part of speech from a word-POS pair, separated by '/'
@@ -210,14 +222,26 @@ class Translator:
 						temp_list.append(sent)
 				all_sents = deepcopy(temp_list)
 
+                # Leaving the pos as part of the sentences also leaves in some pesky "\n" characters
+                # so this loop removes them, but it also slows down the program and doesn't really
+                # help. For debugging, it's nice, but when turning it in, we may want to remove this loop.
                 for sent in all_sents:
                         for i, word in enumerate(sent):
                                 sent[i] = word.replace("\n", "")
-
+                                
+                # There's probably a better way to do this, but it works for now.
                 for i, sent in enumerate(all_sents):
                         new_sent = self.reorder_adjectives(sent)
                         if new_sent:
                                 all_sents[i] = new_sent
+                                new_new_sent = self.fix_negation(new_sent)
+                                if new_new_sent:
+                                        all_sents[i] = new_new_sent
+                        else:
+                                new_sent = self.fix_negation(sent)
+                                if new_sent:
+                                        all_sents[i] = new_sent
+                                        
 
                 return all_sents
 
