@@ -38,7 +38,7 @@ pi0cs000: NN
 pi0mp000: JJ
 pi0ms000: JJ
 pp3csd00: PRP
-pr0cn000: WP
+pr0cn000: None
 rg: RB
 rn: RB
 spcms: IN

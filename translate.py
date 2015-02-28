@@ -129,8 +129,10 @@ class Translator:
 
 
 	# starter function to look up a word (later make more complicated/intelligent)
-	def translate(self, word):
+	def translate(self, index, word):
 		key = self.simplify(word)
+                if key[0] == "como":
+                        return self.handle_como(index, key[0])
 		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punctuation
 			options = self.dictionary[key[0]]
 		else:
@@ -249,6 +251,20 @@ class Translator:
 						result[i] = 'an'
 		return result
 
+        # Just thought of this. Como only translates to "because" if it's at the
+        # start of the sentence, so we make sure to only translate to "because" if
+        # como is at the beginning of the sentence
+        def handle_como(self, index, word):
+                options = self.dictionary[word]
+                for op in options:
+                        if "because" in self.get_word(op) and index == 1:
+                                return [op]
+                        elif index != 1 and "WP" in self.get_pos(op):
+                                return [op]
+                        else:
+                                continue
+                        return options
+        
 	# takes a list of options and returns a list of just the words
 	def options_to_words(self, options):
 		words = list()
@@ -286,8 +302,8 @@ class Translator:
 			english_sentence = list()
 			self.sentence_count += 1
 
-			for word in line:
-				poss_words = self.translate(word)
+			for i, word in enumerate(line):
+				poss_words = self.translate(i, word)
 				english_sentence.append(poss_words) # list of lists of potential translations at each index
 
 			best_sentence = self.choose_best_sentence(english_sentence) # use Naive Bayes to get the most likely sentence
