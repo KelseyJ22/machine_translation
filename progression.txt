@@ -74,3 +74,22 @@ BEST: ['the', 'attention', 'scientist', 'has', 'state', 'focused', 'principally'
 BEST: ['from', 'agreement', 'by', 'the', 'investigation', '', 'the', 'group', 'I infect', 'with', 'malware', 'or', 'code', 'malign', 'the', 'computers', 'of', 'the', 'employees', 'of', 'the', 'institutions', 'bank', '']
 BEST: ['he knows', 'treats', 'of', 'a', 'robbery', 'internet', 'very', 'good', 'and', 'professional', '']
 BEST: ['are', 'taking', 'the', 'measurements', 'suitable', 'for', 'to prevent', 'and', 'to detect', 'this', 'kind', 'of', 'attacks', 'and', 'to minimize', 'anyone', 'effect', 'of', 'these', 'about', 'their', 'guest', '']
+
+
+
+REORDERING OF ADJECTIVES AND NOUNS AND FIXING NEGATION
+BEST: ['following', 'the', 'authors', 'of', 'the', 'study', 'these', 'teeth', 'are', 'composed', 'of', 'a', 'material', 'what', 'is', 'including', 'more', 'strong', 'what', 'the', 'fabric', 'of', 'spider']
+BEST: ['these', 'teeth', 'he', 'knows', 'component', 'of', 'fibers', 'very', 'little', 'organized', 'in', 'a', 'personal', 'way']
+BEST: ['we', 'must', 'to', 'think', 'in', 'to', 'make', 'our', 'own', 'structures', 'following', 'the', 'same', 'principles', 'of', 'this', 'design']
+BEST: ['a', 'girl', 'of', 'seven', 'years', 'fan', 'at', 'the', 'technology', 'little', 'needs', 'more', 'of', 'ten', 'minutes', 'for', 'to', 'hack', 'a', 'internet', 'wireless', 'or', 'public', 'wifi']
+BEST: ['it', 'is', 'it', 'what', 'discovered', 'a', 'business', 'specialized', 'in', 'security', 'information', 'technology', 'what', 'wanted', 'to', 'alert', 'about', 'the', 'dangers', 'by', 'to', 'connect', 'by', 'webs', 'wifi', 'without', 'the', 'security', 'sufficient']
+BEST: ['Betsy', 'Davis', 'is', 'a', 'girl', 'of', 'seven', 'years', 'what', 'lives', 'in', 'London', 'and', 'at', 'the', 'what', 'the', 'pleasure', 'the', 'technology']
+BEST: ['some', "don't", 'require', 'a', 'name', 'of', 'user', 'and', 'password', 'for', 'it', 'what', 'are', 'open', 'by', 'anyone']
+BEST: ['the', 'european', 'parliament', 'had', 'what', 'to', 'disconnect', 'the', 'past', 'year', 'his', 'system', 'in', 'public', 'wifi', 'through', 'to', 'be', 'object', 'of', 'one', 'of', 'these', 'attacks']
+BEST: ['to', 'the', 'to', 'incorporate', 'thread', 'of', 'spider', 'in', 'the', 'membrane', 'he', 'knows', 'become', 'better', 'enormously', 'their', 'properties', 'host']
+BEST: ['in', 'the', 'case', 'in', 'a', 'battery', 'extends', 'his', 'useful', 'life', 'and', 'the', 'time', 'of', 'operating', 'before', 'of', 'the', 'next', 'recharges']
+BEST: ['other', 'advantage', 'is', 'what', 'is', 'a', 'natural', 'material', 'in', 'environmental', 'terms', 'reduces', 'the', 'use', 'of', 'contaminating', 'elements', 'utilized', 'frequently', 'in', 'the', 'batteries']
+BEST: ['the', 'attention', 'scientist', 'has', 'been', 'focused', 'principally', 'in', 'how', 'to', 'reproduce', 'their', 'properties', 'in', 'a', 'synthetic', 'material']
+BEST: ['in', 'agreement', 'by', 'the', 'investigation', 'the', 'group', 'infected', 'with', 'malware', 'or', 'code', 'malign', 'the', 'computers', 'of', 'the', 'employees', 'of', 'the', 'institutions', 'banking']
+BEST: ['he', 'knows', 'treats', 'in', 'a', 'robbery', 'internet', 'very', 'good', 'and', 'professional']
+BEST: ['are', 'taking', 'the', 'suitable', 'measurements', 'for', 'to', 'prevent', 'and', 'to', 'detect', 'this', 'kind', 'of', 'attacks', 'and', 'to', 'minimize', 'anyone', 'effect', 'of', 'these', 'about', 'their', 'guest']

@@ -9,13 +9,14 @@ class Translator:
 		self.dictionary = dict()
 		self.sentences = list()
 		self.translation = dict()
-        self.spanish_pos_dict = dict()
+		self.spanish_pos_dict = dict()
 		self.pos_dict = dict()
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
 		corpusPath = 'data/wiki_corpus.txt'
 		trainingCorpus = self.read_corpus(corpusPath)
 		self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
+		self.vowels = set(['a','e','i','o','u'])
 
   
 	def read_corpus(self, filename):
@@ -72,20 +73,7 @@ class Translator:
 		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
 			sentence[index] = 'estan(None)'
 		return sentence
-
-	# swap the order of adjectives and nouns
-	def reorder_adjectives(self, sentence):
-		result = list()
-		for i in range(0, len(sentence)):
-			word = sentence[i]
-			if self.get_pos(word) == 'JJ':
-				if i < len(sentence):
-					result.append(sentence[i+1]) # this will result in duplicates -- doesn't matter as long as call before deduping
-					result.append(word)
-				else:
-					result.append(word)
-			result.append(word)
-		return result		
+	
 
 	# correct issues like "a ella le gusta"
 	def idiomatic_fix(self, sentence):
@@ -103,34 +91,24 @@ class Translator:
 		return final
 
 
-	# "no require" = "don't require" etc
-	def fix_negation(self, sentence, index):
-		if index == len(sentence):
-			return sentence
-		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
-			sentence[index] = 'do not(None)'
-		return sentence
-
 # ------------------------- ENDING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 
 	# gets the tagged part of speech from a word-POS pair, separated by '/'
 	def get_pos(self, pair):
 		tokens = pair.split('/')
-		return tokens[1]
+		if len(tokens) > 1:
+			return tokens[1]
+		else:
+			return pair
 
 
 	# gets the word from a word-POS pair, separated by '/'
 	def get_word(self, pair):
 		tokens = pair.split('/')
-		return tokens[0]
-
-
-	# takes a list of options and returns a list of just the words
-	def options_to_words(self, options):
-		words = list()
-		for op in options:
-			words.append(self.get_word(op).strip())
-		return words
+		if len(tokens) > 1:
+			return tokens[0]
+		else:
+			return pair
 
 
 	# finds the English translation that matches the part of speech of the Spanish word, if there is one
@@ -142,14 +120,14 @@ class Translator:
 			for op in options:
 				if len(op) > 0: # there will be no options for whitespace or punctuation
 					if self.get_pos(op) == english_pos:
-						matching_options.append(self.get_word(op).strip())
+						matching_options.append(op)
 				else:
 					matching_options.append(op)
 		if len(matching_options) > 0:
 			return matching_options
 		else:
 			# none of the options match the part of speech, so just return all of them
-			return self.options_to_words(options)
+			return options
 
 
 	# starter function to look up a word (later make more complicated/intelligent)
@@ -163,26 +141,13 @@ class Translator:
 		return final_options
 
 
-	# eliminate cases of duplicate words and make each word its own token for NaiveBayes
-	def dedup_and_separate(self, sentence):
-		uniquified = list()
-		for token in sentence:
-			split = token.split() # separate out words
-			for elem in split:
-				if len(uniquified) == 0:
-					uniquified.append(elem)
-				elif uniquified[-1] != elem: # don't append duplicate elements
-					uniquified.append(elem)
-		return uniquified
-
 
 	# compares all possible sentences to find the most probable
 	def get_best(self, sentences):
 		best_sent = list()
 		best_score = float('-inf')
 		for sent in sentences:
-			updated = self.dedup_and_separate(sent)
-			score = self.naive_bayes.score(updated)
+			score = self.naive_bayes.score(sent)
 			if score > best_score:
 				best_sent = deepcopy(sent)
 				best_score = score
@@ -208,11 +173,89 @@ class Translator:
 		return all_sents
 
 
+	# eliminate cases of duplicate words and make each word its own token for NaiveBayes
+	def dedup_and_separate(self, sentence):
+		uniquified = list()
+		for token in sentence:
+			split = token.split() # separate out words
+			for elem in split:
+				if len(uniquified) == 0:
+					uniquified.append(elem)
+				elif uniquified[-1] != elem: # don't append duplicate elements
+					uniquified.append(elem)
+		return uniquified
+
+
+	# fix word order to match typical English syntax
+	def reorder_adjectives(self, sentence):
+		result = sentence[:]
+		for i, word in enumerate(sentence):
+			if i == len(sentence) - 1:
+				continue
+			next_word = sentence[i+1]
+			if word and next_word:  #making sure we don't have spaces or punctuation here
+				if self.get_pos(word).startswith("NN") and self.get_pos(next_word).startswith("JJ"):
+					result[i] = next_word
+					result[i+1] = word
+		return result
+
+
+	# English negation is more complicated than Spanish, where you just precede the word with "no"
+	def fix_negation(self, sentence):
+		result = sentence[:]
+		for i, word in enumerate(sentence):
+			if i == len(sentence) - 1:
+				continue
+			next_word = sentence[i+1]
+			if word and next_word:
+				if self.get_word(word).strip() == 'no' and (self.get_pos(next_word).startswith('VB') or self.get_pos(next_word).startswith("IN")):
+					verb = next_word.split(' ')
+					verb[0] = "don't"
+					fixed_verb = ' '.join(verb)
+					result[i+1] = fixed_verb
+					del result[i]
+		return result
+
+
+	# correct 'a' to 'an' if followed by a vowel
+	def fix_a_an(self, sentence):
+		result = sentence[:]
+		for i, word in enumerate(sentence):
+			if i == len(sentence) - 1:
+				continue
+			next_word = self.get_word(sentence[i+1])
+			if word and next_word:
+				if self.get_word(word).strip() is 'a':
+					if next_word[0] in self.vowels:
+						result[i] = 'an'
+		return result
+
+	# takes a list of options and returns a list of just the words
+	def options_to_words(self, options):
+		words = list()
+		for op in options:
+			words.append(self.get_word(op).strip())
+		return words	
+
+
+	def polish(self, sentences):
+		results = list()
+		for sent in sentences:
+			updated = self.reorder_adjectives(sent)
+			updated = self.fix_a_an(updated)
+			updated = self.fix_negation(updated)
+			updated = self.options_to_words(updated)
+			updated = self.dedup_and_separate(updated)
+			results.append(updated)
+		return results
+
+
 	# choose best english sentence from a list of list of possible words
 	def choose_best_sentence(self, sent_ops):
 		if len(sent_ops) <= 0:
 			return []
 		sentences = self.generate_sentences(sent_ops)
+		sentences = self.polish(sentences)
 		best = self.get_best(sentences)
 		print "BEST: " + str(best)
 		return best
