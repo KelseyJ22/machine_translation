@@ -103,7 +103,7 @@ incluso:including/VBG
 incorporar:to incorporate/VB
 infecto: infected/NN
 informatica:computer science/NN, information technology/NN
-inhalambrica:wireless/NN, cordless/NN
+inhalambrica:wireless/JJ, cordless/NN
 instituciones:institutions/NNS
 interes:interest/NN, attention/NN
 investigacion:investigation/NN

@@ -73,7 +73,6 @@ class Translator:
 		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
 			sentence[index] = 'estan(None)'
 		return sentence
-	
 
 	# correct issues like "a ella le gusta"
 	def idiomatic_fix(self, sentence):
@@ -89,7 +88,6 @@ class Translator:
 			final_str = sentence_str # no change
 		final = final_str.split() # return an array split on spaces
 		return final
-
 
 # ------------------------- ENDING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 
@@ -133,7 +131,7 @@ class Translator:
 	# starter function to look up a word (later make more complicated/intelligent)
 	def translate(self, word):
 		key = self.simplify(word)
-		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punction
+		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punctuation
 			options = self.dictionary[key[0]]
 		else:
 			options = [key[0]] # punctuation needs no translation
@@ -170,7 +168,28 @@ class Translator:
 						temp_list.append(sent)
 				all_sents = deepcopy(temp_list)
 
-		return all_sents
+                # Leaving the pos as part of the sentences also leaves in some pesky "\n" characters
+                # so this loop removes them, but it also slows down the program and doesn't really
+                # help. For debugging, it's nice, but when turning it in, we may want to remove this loop.
+                for sent in all_sents:
+                        for i, word in enumerate(sent):
+                                sent[i] = word.replace("\n", "")
+                                
+                # There's probably a better way to do this, but it works for now.
+                for i, sent in enumerate(all_sents):
+                        new_sent = self.reorder_adjectives(sent)
+                        if new_sent:
+                                all_sents[i] = new_sent
+                                new_new_sent = self.fix_negation(new_sent)
+                                if new_new_sent:
+                                        all_sents[i] = new_new_sent
+                        else:
+                                new_sent = self.fix_negation(sent)
+                                if new_sent:
+                                        all_sents[i] = new_sent
+                                        
+
+                return all_sents
 
 
 	# eliminate cases of duplicate words and make each word its own token for NaiveBayes
