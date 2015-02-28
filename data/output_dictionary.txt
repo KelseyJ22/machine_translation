@@ -209,7 +209,7 @@ til:til/IN
 tipo:type/NN, kind/NN, emblem/NN, build/NN
 tomando:taking/VBG, grabbing/VBG, catching/VBG
 tras:through/IN, due to/IN
-trata:treats/NNS
+trata:treats/VBZ
 tuvo:had/VBD to/TO
 uk:UK/NNP
 un:one/CD, a/DT

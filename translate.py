@@ -66,13 +66,15 @@ class Translator:
 
 # ------------------------- STARTING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 	
-	# find instances of reflexive verbs and replace "se" with "esta/n" to translate properly
-	def replace_reflexive(self, sentence, index):
-		if index == len(sentence):
-			return sentence
-		if 'VB' in self.spanish_pos_dict[sentence[index+1][1]]: # next word in the spanish sentence is a verb
-			sentence[index] = 'estan(None)'
-		return sentence
+	# DONE
+        # find instances of reflexive verbs and replace "se" with "esta/n" to translate properly
+	def replace_reflexive(self, word, next_word):
+                word = self.simplify(word)
+                next_word = self.simplify(next_word)
+                if word[0] == "se" and next_word[1].startswith("v"):
+                        word[0] = "estan"
+                        word[1] = "None"
+                return word
 
 	# correct issues like "a ella le gusta"
 	def idiomatic_fix(self, sentence):
@@ -129,10 +131,12 @@ class Translator:
 
 
 	# starter function to look up a word (later make more complicated/intelligent)
-	def translate(self, index, word):
+	def translate(self, index, word, next_word):
 		key = self.simplify(word)
                 if key[0] == "como":
                         return self.handle_como(index, key[0])
+                if next_word:
+                        key = self.replace_reflexive(word, next_word)
 		if key[0] != ',' and key[0] != '.' and len(key[0]) > 0: # ignore punctuation
 			options = self.dictionary[key[0]]
 		else:
@@ -303,7 +307,8 @@ class Translator:
 			self.sentence_count += 1
 
 			for i, word in enumerate(line):
-				poss_words = self.translate(i, word)
+                                next_word = line[i+1] if i != (len(line) - 1) else None 
+				poss_words = self.translate(i, word, next_word)
 				english_sentence.append(poss_words) # list of lists of potential translations at each index
 
 			best_sentence = self.choose_best_sentence(english_sentence) # use Naive Bayes to get the most likely sentence
