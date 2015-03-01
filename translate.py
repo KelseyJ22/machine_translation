@@ -2,6 +2,7 @@
 
 from naive_bayes import NaiveBayesSBLM
 from copy import deepcopy
+import re
 
 class Translator:
 
@@ -63,8 +64,6 @@ class Translator:
 		tokens[0] = word
 		return tokens
 
-
-# ------------------------- STARTING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 	
     # find instances of reflexive verbs and replace "se" with an empty string to translate properly
 	def replace_reflexive(self, word, next_word):
@@ -75,22 +74,6 @@ class Translator:
                         word[1] = 'None'
                 return word
 
-	# correct issues like "a ella le gusta"
-	def idiomatic_fix(self, sentence):
-		sentence_str = str(sentence)
-		final_str = ''
-		regex = '(.*) a\(sps00\) ([A-z]{1,}\(.*\) ?[A-z]{0,}\(.*\)) le\(pp3csd00\) (?:gusta|encanta|odia|gustan|encantan|odian)(.*)'
-		m = re.findall(sentence_str, regex)
-		if len(m) == 3:
-			final_str = m[0] + m[1] + ' likes(None) ' + m[2]
-		elif len(m) == 2:
-			final_str = m[0] + ' likes(None) ' + m[1] 
-		else:
-			final_str = sentence_str # no change
-		final = final_str.split() # return an array split on spaces
-		return final
-
-# ------------------------- ENDING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 
 	# gets the tagged part of speech from a word-POS pair, separated by '/'
 	def get_pos(self, pair):
@@ -254,19 +237,19 @@ class Translator:
 						result[i] = 'an'
 		return result
 
-    # Just thought of this. Como only translates to "because" if it's at the
-    # start of the sentence, so we make sure to only translate to "because" if
-    # como is at the beginning of the sentence
-    def handle_como(self, index, word):
-        options = self.dictionary[word]
-        for op in options:
-            if "because" in self.get_word(op) and index == 1:
-                return [op]
-            elif index != 1 and "WP" in self.get_pos(op):
-                return [op]
-            else:
-                continue
-            return options
+	# Just thought of this. Como only translates to "because" if it's at the
+	# start of the sentence, so we make sure to only translate to "because" if
+	# como is at the beginning of the sentence
+	def handle_como(self, index, word):
+		options = self.dictionary[word]
+		for op in options:
+			if "because" in self.get_word(op) and index == 1:
+				return [op]
+			elif index != 1 and "WP" in self.get_pos(op):
+				return [op]
+			else:
+				continue
+			return options
         
 	# takes a list of options and returns a list of just the words
 	def options_to_words(self, options):
@@ -295,8 +278,31 @@ class Translator:
 		sentences = self.generate_sentences(sent_ops)
 		sentences = self.polish(sentences)
 		best = self.get_best(sentences)
-		print "BEST: " + str(best)
+		string = ''
+		for word in best:
+			string += word + ' '
+		print "BEST: " + string
 		return best
+
+
+# correct issues like "a ella le gusta"
+	def idiomatic_fix(self, sentence):
+		sentence_str = ''
+		for word in sentence:
+			sentence_str += word + ' '
+		final_str = ''
+		regex = '(.*)(?:a|A)\(sps00\) ([A-z]{1,}\(.*\) ?[A-z]{0,}\(.*\)) le\(pp3csd00\) (?:gusta|encanta|gustan|encantan)(.*)'
+		m = re.findall(regex, sentence_str)
+
+		sentiment = ' likes(None) '
+		for elem in m:
+			if len(elem) == 3:
+				final_str = elem[0] + elem[1] + sentiment + elem[2]
+				return final_str.split()
+			elif len(elem) == 2:
+				final_str = elem[0] + sentiment + elem[1]
+				return final_str.split()
+		return sentence_str.split() # return an array split on spaces
 
 
 	# basic direct translation
@@ -304,9 +310,9 @@ class Translator:
 		for line in self.sentences:
 			english_sentence = list()
 			self.sentence_count += 1
-
+			line = self.idiomatic_fix(line)
 			for i, word in enumerate(line):
-                                next_word = line[i+1] if i != (len(line) - 1) else None 
+                		next_word = line[i+1] if i != (len(line) - 1) else None 
 				poss_words = self.translate(i, word, next_word)
 				english_sentence.append(poss_words) # list of lists of potential translations at each index
 

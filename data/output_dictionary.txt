@@ -1,12 +1,12 @@
 a:to/TO, at/IN, into/IN, by/IN, of/IN
 abiertos:open/JJ
-acomodadas:comfortable/JJ, organized/VBN
+acomodadas:comfortable/JJ, organized/VB
 acuerdo:agreement/NN, understanding/NN, accord/NN
 adecuadas:suitable/JJ, appropriate/JJ, sufficient/JJ
-aficionada:fan/NN, enthusiast/JJ, lover/RB, afficionado/VBP
+aficionada:fan/NN, enthusiast/JJ, lover/RB, afficionado/VBZ
 afirma:affirms/VBZ, affirms/VBZ, affirms/VBZ
-al:to the/DT, through/IN
-alertar:to alert/VB
+al:to/DT, through/IN
+alertar:alert/VB
 algo:something/NN
 algunos:someone/NN, some/DT, a few/JJ
 ambientales:environmental/JJ, ambient/NN
@@ -16,7 +16,7 @@ ara:ara/NN
 arana:spider/NN
 ano:year/NN
 anos:years/NNS
-ataques:attack/NNS
+ataques:attacks/NNS
 autores:authors/NNS, writers/NNS, perpetrators/NNS
 bancarias:banking/JJ, bank employee/NN, bank statement/NN
 banda:band/NN, group/NN, sash/NN, belt/VBD, gang/JJ
@@ -33,31 +33,31 @@ caso:case/NN, fact/NN, marry/JJ
 ciberataque:cyberattack/NN
 cibernetico:internet/JJ
 cibern:cibern/NN
-cientifico:scientist/NN
+cientifico:scientist/NN, scientific/JJ
 clientes:customer/NN, client/NN, guest/NN
 codigo:code/NN
 colombia:Colombia/NNP
 comunmente:commonly/RB, frequently/RB
 como:as/IN, like/IN, how/WP, because/IN
-componen:component/NN
+componen:composed of/NN
 compuestos:compound/NN, dressed/VBNup/RP, composed/VBD
 computadoras:computers/NNS
 con:with/IN
-conductoras:driver/NN, presenter/NN, anchor/NN, host/NN
-conectarse:to connect/VB, to plug in/IN, to get through to/TO
+conductoras:conductive/JJ, driver/NN, presenter/NN, anchor/NN, host/NN
+conectarse:connect/VB, plug in/IN, get through to/TO
 contaminantes:contaminating/JJ, pollutants/NNS, contaminants/NNS
 contrasena:password/NN
-cualquier:anyone/NN
+cualquier:any/PRP, whatever/WP, whichever/WP
 cualquiera:anyone/NN, anybody/NN, ordinary/JJ, unremarkable/JJ
 davis:Davis/NNP
 de:from/IN, of/IN, by/IN, in/IN, than/IN
-deber:have/VBPto/TO, must/MD
+deber:have/VBP to/TO, must/MD
 deberiamos:we have to/TO, we must/MD, we should/MD
 del:of the/DT
-desconectar:to disconnect/VB
-descubrir:to discover/VB
+desconectar:disconnect/VB
+descubrir:discover/VB
 descubrio:discovered/VBD, discovered/VBD, discovered/VBD
-detectar:to detect/VB
+detectar:detect/VB
 dientes:teeth/NN
 diez:ten/VBN
 digo:I said/VBD
@@ -93,14 +93,14 @@ gusta:pleasure/NN
 h:h/NN
 ha:has/VBZ
 habil:good/JJ, clever/RB, skilled/VBD
-hacer:to make/VB, to do/VB
-hackear:to hack/VB
+hacer:make/VB, do/VB
+hackear:hack/VB
 hechos:incident/NN, done/NN
 hilo:thread/NN
 http:http/NN
 humano:human/JJ
 incluso:including/VBG
-incorporar:to incorporate/VB
+incorporar:incorporate/VB
 infecto: infected/NN
 informatica:computer science/NN, information technology/NN
 inhalambrica:wireless/JJ, cordless/NN
@@ -123,14 +123,14 @@ maligno:malign/JJ, malignant/JJ
 malware:malware/NN
 manera:way/NN, manner/NN
 mas:more/JJR
-material:material/NN, fabric/JJ, cop/NN
+material:material;/NN, fabric/JJ, cop/NN
 materiales:materials/NNS, fabrics/NNS
 mbrica:mbrica/NN
 medidas:measurements/NNS, steps/VBZ
-mejoran:become better/RBR
+mejoran:improves/RBR
 mejores:betters/NNS
 membrana:membrane/NN
-minimizar:to minimize/VB
+minimizar:minimize/VB
 minutos:minutes/NNS
 mismos:same/JJ, just/RB
 mo:mo/NN
@@ -149,20 +149,20 @@ nuestras:our/PRP$
 o:or/CC
 objeto:object/NN
 os:of us/PRP
-otra:other/JJ
+otra:another/JJ
 p:p/NN
 para:for/IN, in order to/TO, to/TO, stops/NNS
 parlamento:parliament/NN
-particular:particular/JJ, peculiar/JJ, private/JJ, personal/JJ, individual/JJ
+particular:particular/JJ, peculiar/JJ, individual/JJ
 pasado:past/JJ
 peligros:dangers/NNS
-pensar:to think/VB, to mediate/VB
+pensar:think/VB, mediate/VB
 pequenas:little/JJ, small/JJ
 pilas:batteries/NNS, sinks/NNS, piles/NNS
 poco:little/JJ
-por:for/IN
+por:for/IN, so/CC
 proxima:next/JJ, close/JJ, near/IN, coming/VBG
-prevenir:to prevent/VB, to alert/VB, to warn/VB
+prevenir:prevent/VB, to alert/VB, to warn/VB
 principalmente:principally/RB
 principios:principles/NNS, starts/NNS
 profesional:professional/JJ
@@ -170,13 +170,13 @@ propias:own/JJ, typical/JJ, appropriate/JJ
 propiedades:properties/NNS, attributes/VBZ, characteristics/NNS, traits/NNS
 publica:public/JJ
 publico:public/JJ
-que:what/WP, that/IN, which/WDT
+que:what/WP, that/IN, which/WDT, than/IN
 quiso:wanted/VBD
-recarga:recharges/NNS, reloads/NNS
+recarga:recharge/NNS, reload/NNS
 red:internet/NN, web/NN
 redes:webs/NNS
 reduce:reduces/VBZ, reduces/VBZ, reduces/VBZ
-reproducir:to reproduce/VB, to replicate/VB
+reproducir:reproduce/VB, replicate/VB
 requieren:they require/VBP
 rminos:rminos/NNS
 robo:robbery/NN, theft/NN
@@ -192,9 +192,9 @@ siguiendo:following/VBG
 sin:without/IN
 sintetico:synthetic/JJ
 sistema:system/NN
-sobre:about/IN, above/IN, over/IN
+sobre:about/IN, above/IN, over/IN, for/CC
 su:his/PRP$, her/PRP$, its/PRP$, their/PRP$
-suficiente:sufficient/NN
+suficiente:sufficient/JJ
 sus:their/PRP$
 t:t/NN
 tan:so/RB, such/JJ, as/IN
@@ -208,7 +208,7 @@ tiempo:time/NN, weather/RB, moment/NN
 til:til/IN
 tipo:type/NN, kind/NN, emblem/NN, build/NN
 tomando:taking/VBG, grabbing/VBG, catching/VBG
-tras:through/IN, due to/IN
+tras:through/IN, due to/IN, after/CC
 trata:treats/VB, discusses/VBZ
 tuvo:had/VBD to/TO
 uk:UK/NNP

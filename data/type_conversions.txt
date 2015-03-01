@@ -17,7 +17,7 @@ da0ms0: DT
 da0ns0: DT
 dd0mp0: DT
 dd0ms0: DT
-di0cs0: PDT
+di0cs0: WP
 di0fs0: PDT
 di0mp0: PDT
 di0ms0: PDT
@@ -38,11 +38,11 @@ pi0cs000: NN
 pi0mp000: JJ
 pi0ms000: JJ
 pp3csd00: PRP
-pr0cn000: None
+pr0cn000: IN
 rg: RB
 rn: RB
 spcms: IN
-sps00: IN
+sps00: CC
 vaip3s0: VBZ
 vmg0000: VBG
 vmip3p0: VBZ
@@ -51,3 +51,4 @@ vmis3s0: VBD
 vmn0000: VB
 vsip3s0: VB
 vsn0000: VB
+to: TO
