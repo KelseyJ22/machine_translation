@@ -49,6 +49,7 @@ vmip3p0: VBZ
 vmip3s0: VBZ
 vmis3s0: VBD
 vmn0000: VB
-vsip3s0: VB
+vsip3s0: VBZ
 vsn0000: VB
 to: TO
+vsip3s1: PRPVBZ

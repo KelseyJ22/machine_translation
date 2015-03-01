@@ -73,9 +73,9 @@ empresa:business/NN, company/NN, enterprise/VBP
 en:in/IN
 enfocado:focused/VBN
 enormemente:enormously/JJ
-es:is/VBZ, it is/VBZ
+es:is/VBZ, it is/PRPVBZ
 especializada:specialized/VBN
-estan:are/VBP
+estan:they are/PRPVBZ, are/VB
 estado:state/NN, phase/NN, condition/NN, been/NNS
 este:this/DT
 estos:these/DT
@@ -227,3 +227,8 @@ wifipublica:public wifi/NN
 www:www/NN
 xima:xima/NN
 y:and/CC, y/NN
+hadto:had to/None
+caseof:case of/None
+systemof:system of/None
+ofmaking:of making/None
+inorderto:in order to/None

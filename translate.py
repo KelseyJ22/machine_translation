@@ -201,7 +201,7 @@ class Translator:
 				continue
 			next_word = sentence[i+1]
 			if word and next_word:  #making sure we don't have spaces or punctuation here
-				if self.get_pos(word).startswith("NN") and self.get_pos(next_word).startswith("JJ"):
+				if self.get_pos(word).startswith('NN') and self.get_pos(next_word).startswith('JJ'):
 					result[i] = next_word
 					result[i+1] = word
 		return result
@@ -215,7 +215,7 @@ class Translator:
 				continue
 			next_word = sentence[i+1]
 			if word and next_word:
-				if self.get_word(word).strip() == 'no' and (self.get_pos(next_word).startswith('VB') or self.get_pos(next_word).startswith("IN")):
+				if self.get_word(word).strip() == 'no' and (self.get_pos(next_word).startswith('VB') or self.get_pos(next_word).startswith('IN')):
 					verb = next_word.split(' ')
 					verb[0] = "don't"
 					fixed_verb = ' '.join(verb)
@@ -243,14 +243,30 @@ class Translator:
 	def handle_como(self, index, word):
 		options = self.dictionary[word]
 		for op in options:
-			if "because" in self.get_word(op) and index == 1:
+			if 'because' in self.get_word(op) and index == 1:
 				return [op]
-			elif index != 1 and "WP" in self.get_pos(op):
+			elif index != 1 and 'WP' in self.get_pos(op):
 				return [op]
 			else:
 				continue
 			return options
         
+
+    # instead of 'more _____' should be '________er'    
+	def fix_adj(self, sentence):
+		result = sentence[:]
+		for i, word in enumerate(sentence):
+			if i == len(sentence) - 1:
+				continue
+			next_word = sentence[i+1]
+			if word and next_word:
+				if self.get_word(word) == 'more':
+					if self.get_pos(next_word) == 'JJ':
+						result[i] = ''
+						replacement = self.get_word(next_word) + 'er/' + self.get_pos(next_word)
+						result[i+1] = replacement
+		return result
+
 	# takes a list of options and returns a list of just the words
 	def options_to_words(self, options):
 		words = list()
@@ -258,13 +274,14 @@ class Translator:
 			words.append(self.get_word(op).strip())
 		return words	
 
-
+	# postprocessing of the English sentences
 	def polish(self, sentences):
 		results = list()
 		for sent in sentences:
 			updated = self.reorder_adjectives(sent)
 			updated = self.fix_a_an(updated)
 			updated = self.fix_negation(updated)
+			updated = self.fix_adj(updated)
 			updated = self.options_to_words(updated)
 			updated = self.dedup_and_separate(updated)
 			results.append(updated)
@@ -305,12 +322,26 @@ class Translator:
 		return sentence_str.split() # return an array split on spaces
 
 
+	# replace common special cases with correct idiomatic translation
+	def special_cases(self, sentence):
+		sent = ''
+		for word in sentence:
+			sent += word + ' '
+		sent = sent.replace('tuvo(vmis3s0) que(pr0cn000)', 'hadto(None)')
+		sent = sent.replace('caso(ncms000) de(sps00)', 'caseof(None)')
+		sent = sent.replace('sistema(ncms000) de(sps00)', 'systemof(None)')
+		sent = sent.replace('en(sps00) hacer(vmn0000)', 'ofmaking(None)')
+		sent = sent.replace('para que(pr0n000)', 'inorderto(None)')
+		return sent.split()
+
+
 	# basic direct translation
 	def stupid_translate(self):
 		for line in self.sentences:
 			english_sentence = list()
 			self.sentence_count += 1
 			line = self.idiomatic_fix(line)
+			line = self.special_cases(line)
 			for i, word in enumerate(line):
                 		next_word = line[i+1] if i != (len(line) - 1) else None 
 				poss_words = self.translate(i, word, next_word)
@@ -337,6 +368,7 @@ class Translator:
 
 		return contents
 
+
 	# reads in our mini dictionary and makes usable
 	def parse_dict(self, filename):
 		dictionary = dict() 
@@ -348,9 +380,11 @@ class Translator:
 				values = split[1].split(',') # multiple possible english words for a single spanish word
 				dictionary[key] = values
 			else:
+				print line
 				print "ERROR" # if anything prints, there's a problem with the dictionary
 		f.close() # clean up after yourself!
 		return dictionary
+
 
         # reads in the Spanish POS to English POS dictionary, works like "parse_dict"
         def parse_pos_dict(self, filename):
@@ -369,6 +403,7 @@ class Translator:
                                 print "ERROR"
                 f.close()
                 return dictionary
+
 
 def main():
 	sentences_file = 'data/tagged_sentences.txt'
