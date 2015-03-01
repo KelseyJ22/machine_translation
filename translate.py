@@ -14,8 +14,9 @@ class Translator:
 		self.pos_dict = dict()
 		self.sentence_count = 0
 		#TODO: create custom func to parse corpus
-		corpusPath = 'data/wiki_corpus.txt'
+		corpusPath = 'corpora/wiki_tagless.txt'
 		trainingCorpus = self.read_corpus(corpusPath)
+		#self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
 		self.naive_bayes = NaiveBayesSBLM(trainingCorpus)
 		self.vowels = set(['a','e','i','o','u'])
 
@@ -28,8 +29,8 @@ class Translator:
 		f = f.replace(',', '')
 		f = f.replace('\'', '')
 		f = f.replace('\"', '')
-		f = f.replace('!', '')
-		f = f.replace('?', '')
+		f = f.replace('!', '.')
+		f = f.replace('?', '.')
 		f = f.replace('(', '')
 		f = f.replace(')', '')
 		f = f.replace('[', '')
@@ -39,8 +40,10 @@ class Translator:
 		f = f.replace('@', '')
 		f = f.replace('%', '')
 		f = f.replace('*', '')
+		f = f.replace('-', '')
+		f = f.replace('=', '')
+		f = f.replace('[0-9]', '')
 		f = f.lower()
-		# remove other chars as necessary
 		corpus = f.split('.')
 		for i in range(len(corpus)):
 			corpus[i] = corpus[i].split()	
@@ -303,7 +306,7 @@ class Translator:
 		return best
 
 
-# correct issues like "a ella le gusta"
+	# correct issues like "a ella le gusta"
 	def idiomatic_fix(self, sentence):
 		sentence_str = ''
 		for word in sentence:
