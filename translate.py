@@ -59,8 +59,8 @@ class Translator:
 		word = word.replace('ó', 'o')
 		word = word.replace('ú', 'u')
 		word = word.replace('ñ', 'n')
-		word = word.replace('.', '')
-		word = word.replace(',', '')
+		#word = word.replace('.', '')
+		#word = word.replace(',', '')
 		tokens[0] = word
 		return tokens
 
@@ -237,9 +237,8 @@ class Translator:
 						result[i] = 'an'
 		return result
 
-	# Just thought of this. Como only translates to "because" if it's at the
-	# start of the sentence, so we make sure to only translate to "because" if
-	# como is at the beginning of the sentence
+
+	# translate to "because" if como is at the beginning of the sentence
 	def handle_como(self, index, word):
 		options = self.dictionary[word]
 		for op in options:
@@ -267,12 +266,14 @@ class Translator:
 						result[i+1] = replacement
 		return result
 
+
 	# takes a list of options and returns a list of just the words
 	def options_to_words(self, options):
 		words = list()
 		for op in options:
 			words.append(self.get_word(op).strip())
 		return words	
+
 
 	# postprocessing of the English sentences
 	def polish(self, sentences):

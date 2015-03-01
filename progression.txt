@@ -112,3 +112,21 @@ BEST: ['the', 'attention', 'scientist', 'has', 'been', 'focused', 'principally',
 BEST: ['in', 'agreement', 'by', 'the', 'investigation', 'the', 'group', 'infected', 'with', 'malware', 'or', 'malign', 'code', 'the', 'computers', 'of', 'the', 'employees', 'of', 'the', 'banking', 'institutions']
 BEST: ['discusses', 'an', 'internet', 'robbery', 'very', 'good', 'and', 'professional']
 BEST: ['are', 'taking', 'the', 'suitable', 'measurements', 'for', 'to', 'prevent', 'and', 'to', 'detect', 'this', 'kind', 'of', 'attack', 'and', 'to', 'minimize', 'anyone', 'effect', 'of', 'these', 'about', 'their', 'guest']
+
+
+POS TUNING, GERUND, -ER: FINAL
+BEST: according to the authors of the study , these teeth are composed of a material that is including stronger that the fabric of spider . 
+BEST: these teeth composed of fibers very little , organized in a particular way . 
+BEST: we must think of making our own structures following the same principles of this design . 
+BEST: a girl of seven years fan of the little technology more needs of ten minutes to hack a wireless internet or public wifi . 
+BEST: it is it that discovered a business specialized in security computer science that wanted to alert for the dangers of connect of webs wifi without the sufficient security . 
+BEST: Betsy Davis is a girl of seven years that lives in London and the that likes the technology . 
+BEST: some don't require a name of user and password , for it that they are open to anyone . 
+BEST: the european parliament had to disconnect the past year his system of public wifi due to be the object of one of these attacks . 
+BEST: to incorporate thread of spider in the membrane , improves enormously their conductive properties . 
+BEST: in the case of a battery , extends his useful life and the time of operating before of the next recharge . 
+BEST: another advantage is that it is a natural material . in environmental terms , reduces the use of contaminating elements utilized commonly in the batteries . 
+BEST: the scientific interest has been focused principally in how to reproduce their properties in a synthetic material . 
+BEST: in understanding of the investigation , the group infected with malware or malign code the computers of the employees of the banking institutions . 
+BEST: this discusses an internet robbery very good and professional . 
+BEST: they are taking the suitable measurements to prevent and detect this kind of attacks and minimize whatever effect of these for their guests . 

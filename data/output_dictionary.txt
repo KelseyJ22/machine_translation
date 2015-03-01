@@ -34,7 +34,7 @@ ciberataque:cyberattack/NN
 cibernetico:internet/JJ
 cibern:cibern/NN
 cientifico:scientist/NN, scientific/JJ
-clientes:customer/NN, client/NN, guest/NN
+clientes:customers/NN, clients/NN, guests/NN
 codigo:code/NN
 colombia:Colombia/NNP
 comunmente:commonly/RB, frequently/RB
