@@ -33,8 +33,8 @@ Strategies:
 2. Part of speech tagging in English to reorder adjectives and nouns
 3. Eliminate duplicates in English sentences (usually "to")
 4. NaiveBayes sentence probability to choose best translation from among options
-5. NaiveBayes to test removal of words (because Spanish uses more words than English)
-6. Address prepositions: "por"-->"by","of","from"; "que"-->"that","what"
-7. Bidirectional NaiveBayes to fix things like "web" before "spider"
-8. Idiomatic expression translation ("a ella le gusta"-->"she likes" rather than "to she it it pleases" as the dictionary would otherwise translate it)
-9. 
+5. Implement code to differentiate between prepositions: "por"-->"by","of","from"; "que"-->"that","what", "como"-->"because", "how".
+6. Idiomatic expression translation ("a ella le gusta"-->"she likes" rather than "to she it it pleases" as the dictionary would otherwise translate it)
+7. Remove duplicate words that occur since technical translations from Spanish to English often result in translations like "in order to to think", etc.
+8. Fix negation to use "do not" and similar rather than simply "no" as in Spanish; direct translation results in just "no".
+9. Choose the correct form of "a/an" depending on whether the following word starts with a vowel.

@@ -1,24 +1,7 @@
-se + spanish conjugated verb = are + english conjugated verb (FIND INSTANCES OF SE ______ AND REPLACE WITH ESTAN _____)
-
-
 spanish conjugated verb + spanish infinitive = english conjugated verb + infinitive without "to" (UNECESSARY TO)
-
-
-un + noun = a or an + noun (CHECK TO CHANGE A TO AN)
 
 
 rearrange: "is it what he discovered a business specialized in security information technology" -->  "a business specialized in security information technology [is it what he] discovered"
 
 a + ___ + le gusta ________ = ___ likes _____________
 
-
-no + spanish verb = don't + english verb
-
-
-antes + de = before (NOT BEFORE OF)
-
-
-se trata de = covers (ie "is about")
-
-
-rearrange: "parliament european" --> "european parliament" etc

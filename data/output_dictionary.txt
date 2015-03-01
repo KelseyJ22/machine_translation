@@ -16,9 +16,9 @@ ara:ara/NN
 arana:spider/NN
 ano:year/NN
 anos:years/NNS
-ataques:attacks/NNS
+ataques:attack/NNS
 autores:authors/NNS, writers/NNS, perpetrators/NNS
-bancarias:banking/VBG, bank employee/NN, bank statement/NN
+bancarias:banking/JJ, bank employee/NN, bank statement/NN
 banda:band/NN, group/NN, sash/NN, belt/VBD, gang/JJ
 bateria:battery/NN
 baterias:battery/NN, drums/NNS
@@ -31,7 +31,7 @@ c:c/NN
 carbono:carbon/NN, coal/NN
 caso:case/NN, fact/NN, marry/JJ
 ciberataque:cyberattack/NN
-cibernetico:internet/NN
+cibernetico:internet/JJ
 cibern:cibern/NN
 cientifico:scientist/NN
 clientes:customer/NN, client/NN, guest/NN
@@ -119,7 +119,7 @@ los:the/DT
 lp:lp/NN
 lv:lv/NN
 m:m/NN
-maligno:malign/NN, malignant/JJ
+maligno:malign/JJ, malignant/JJ
 malware:malware/NN
 manera:way/NN, manner/NN
 mas:more/JJR
@@ -209,7 +209,7 @@ til:til/IN
 tipo:type/NN, kind/NN, emblem/NN, build/NN
 tomando:taking/VBG, grabbing/VBG, catching/VBG
 tras:through/IN, due to/IN
-trata:treats/VBZ
+trata:treats/VB, discusses/VBZ
 tuvo:had/VBD to/TO
 uk:UK/NNP
 un:one/CD, a/DT

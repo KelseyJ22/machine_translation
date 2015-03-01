@@ -66,14 +66,13 @@ class Translator:
 
 # ------------------------- STARTING HERE NEED TO BE DEBUGGED AND CALLED IN THE RIGHT PLACE -------------------------
 	
-	# DONE
-        # find instances of reflexive verbs and replace "se" with "esta/n" to translate properly
+    # find instances of reflexive verbs and replace "se" with an empty string to translate properly
 	def replace_reflexive(self, word, next_word):
                 word = self.simplify(word)
                 next_word = self.simplify(next_word)
-                if word[0] == "se" and next_word[1].startswith("v"):
-                        word[0] = "estan"
-                        word[1] = "None"
+                if word[0] == 'se' and next_word[1].startswith('v'):
+                        word[0] = ''
+                        word[1] = 'None'
                 return word
 
 	# correct issues like "a ella le gusta"
@@ -255,19 +254,19 @@ class Translator:
 						result[i] = 'an'
 		return result
 
-        # Just thought of this. Como only translates to "because" if it's at the
-        # start of the sentence, so we make sure to only translate to "because" if
-        # como is at the beginning of the sentence
-        def handle_como(self, index, word):
-                options = self.dictionary[word]
-                for op in options:
-                        if "because" in self.get_word(op) and index == 1:
-                                return [op]
-                        elif index != 1 and "WP" in self.get_pos(op):
-                                return [op]
-                        else:
-                                continue
-                        return options
+    # Just thought of this. Como only translates to "because" if it's at the
+    # start of the sentence, so we make sure to only translate to "because" if
+    # como is at the beginning of the sentence
+    def handle_como(self, index, word):
+        options = self.dictionary[word]
+        for op in options:
+            if "because" in self.get_word(op) and index == 1:
+                return [op]
+            elif index != 1 and "WP" in self.get_pos(op):
+                return [op]
+            else:
+                continue
+            return options
         
 	# takes a list of options and returns a list of just the words
 	def options_to_words(self, options):
