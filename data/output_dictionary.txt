@@ -1,7 +1,7 @@
 a:to/TO, at/IN, into/IN, by/IN, of/IN
 abiertos:open/JJ
 acomodadas:comfortable/JJ, organized/VB
-acuerdo:agreement/NN, understanding/NN, accord/NN
+acuerdo:agreement/NN, understanding/NN, accordance/NN
 adecuadas:suitable/JJ, appropriate/JJ, sufficient/JJ
 aficionada:fan/NN, enthusiast/JJ, lover/RB, afficionado/VBZ
 afirma:affirms/VBZ, affirms/VBZ, affirms/VBZ
@@ -123,7 +123,7 @@ maligno:malign/JJ, malignant/JJ
 malware:malware/NN
 manera:way/NN, manner/NN
 mas:more/JJR
-material:material;/NN, fabric/JJ, cop/NN
+material:material/NN, fabric/JJ, cop/NN
 materiales:materials/NNS, fabrics/NNS
 mbrica:mbrica/NN
 medidas:measurements/NNS, steps/VBZ
@@ -209,7 +209,7 @@ til:til/IN
 tipo:type/NN, kind/NN, emblem/NN, build/NN
 tomando:taking/VBG, grabbing/VBG, catching/VBG
 tras:through/IN, due to/IN, after/CC
-trata:treats/VB, discusses/VBZ
+trata:treats/VB, this discusses/VBZ
 tuvo:had/VBD to/TO
 uk:UK/NNP
 un:one/CD, a/DT
